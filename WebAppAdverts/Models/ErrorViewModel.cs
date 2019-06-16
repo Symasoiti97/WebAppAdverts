@@ -1,5 +1,3 @@
-using System;
-
 namespace WebAppAdverts.Models
 {
     public class ErrorViewModel
