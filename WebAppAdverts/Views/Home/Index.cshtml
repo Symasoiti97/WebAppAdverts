@@ -3,6 +3,10 @@
     ViewData["Title"] = "Adverts";
 }
 
+<div id="modDialog" class="modal fade bs-example-modal-sm">
+    <dib id="dialogContent" class="modal-dialog modal-sm"></dib>
+</div>
+
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-10">
@@ -12,17 +16,36 @@
 
 
 <div class="row position-fixed">
-    <div class="col-md-2">
+    <div class="col-md-2 form-group">
         <form method="get">
-            <div>
-                <label class="control-label">Author: </label>
-                @Html.TextBox("name", Model.SearchAdvert.User.Name, htmlAttributes: new { @class = "form-control" })
-                <label class="control-label">Content: </label>
-                @Html.TextBox("content", Model.SearchAdvert.Content, htmlAttributes: new { @class = "form-control" })
-                <br>
-                <input class="btn btn-default" type="submit" value="Search" />
-            </div>
+            <label class="control-label">Author: </label>
+            @Html.TextBox("name", Model.FilterViewModel.Name, htmlAttributes: new { @class = "form-control" })
+            <label class="control-label">Content: </label>
+            @Html.TextBox("content", Model.FilterViewModel.Content, htmlAttributes: new { @class = "form-control" })
+            <br>
+            <input class="btn btn-default" type="submit" value="Search" />
         </form>
+        <br>
+        <label class="control-label">
+            <a asp-action="Index"
+               asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-content="@(Model.FilterViewModel.Content)">NameSort</a>
+        </label>
+        <br>
+        <label class="control-label">
+            <a asp-action="Index"
+               asp-route-sortOrder="@(Model.SortViewModel.RatingSort)"
+               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-content="@(Model.FilterViewModel.Content)">RatingSort</a>
+        </label>
+        <br>
+        <label class="control-label">
+            <a asp-action="Index"
+               asp-route-sortOrder="@(Model.SortViewModel.DateSort)"
+               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-content="@(Model.FilterViewModel.Content)">DateSort</a>
+        </label>
     </div>
 
     <div class="col-md-10">
@@ -32,16 +55,23 @@
                 <div class="col-md-2">
                     @if (advert.Image != null)
                     {
-                        <img class="img-thumbnail" src="data:image/jpeg;base64,@(Convert.ToBase64String(advert.Image))" />
+                        <form method="get">
+                            <a class="btn btn-link deleteAdvert" asp-controller="Home" asp-action="ImageModal" asp-route-image="@advert.Image">
+                                <img class="img-thumbnail" src="data:image/jpeg;base64,@(Convert.ToBase64String(advert.Image))" />
+                            </a>
+                        </form>
                     }
                 </div>
                 <div class="col-md-8">
                     <div class="row">
-                        <form method="post">
+                        <form method="get">
                             <label class="text-left">Date added: @advert.DateTime.ToShortDateString()</label>
                             <label class="text-left">Author: @advert.User.Name</label>
                             <label class="text-right">
                                 <a class="btn btn-link" asp-controller="Home" asp-action="Edit" asp-route-advertId="@advert.Id">Edit</a>
+                            </label>
+                            <label class="text-right">
+                                <a class="btn btn-link deleteAdvert" asp-controller="Home" asp-action="DeleteModal" asp-route-advertId="@advert.Id">Delete</a>
                             </label>
                         </form>
                     </div>
@@ -54,3 +84,52 @@
         }
     </div>
 </div>
+
+
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="Index"
+               asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-company="@(Model.FilterViewModel.Content)"
+               asp-route-sortorder="@(Model.SortViewModel.CurrentSort)"
+               class="btn btn-default btn">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Назад
+            </a>
+        }
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="Index"
+               asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-company="@(Model.FilterViewModel.Content)"
+               asp-route-sortorder="@(Model.SortViewModel.CurrentSort)"
+               class="btn btn-default btn">
+                Вперед
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>
+</div>
+
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".deleteAdvert").click(function (e) {
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

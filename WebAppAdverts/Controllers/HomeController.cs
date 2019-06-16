@@ -2,9 +2,11 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using BusinessLogic.DataManager;
 using DataBase.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebAppAdverts.Models;
 
 namespace WebAppAdverts.Controllers
@@ -18,8 +20,11 @@ namespace WebAppAdverts.Controllers
             _operationDb = operationDb;
         }
 
-        public IActionResult Index(string name, string content)
+        [HttpGet]
+        public async Task<IActionResult> Index(string name, string content, int page = 1, SortState sortOrder = SortState.NameAsc)
         {
+            int pageSize = 3;
+
             IQueryable<Advert> adverts = _operationDb.GetAdvertisements();
 
             if (!String.IsNullOrEmpty(name))
@@ -32,14 +37,43 @@ namespace WebAppAdverts.Controllers
                 adverts = adverts.Where(adv => adv.Content.Contains(content));
             }
 
+            switch (sortOrder)
+            {
+                case SortState.NameDesc:
+                    adverts = adverts.OrderByDescending(sort => sort.User.Name);
+                    break;
+                case SortState.NameAsc:
+                    adverts = adverts.OrderBy(sort => sort.User.Name);
+                    break;
+                case SortState.RatingDesc:
+                    adverts = adverts.OrderByDescending(sort => sort.Rating);
+                    break;
+                case SortState.RatingAsc:
+                    adverts = adverts.OrderBy(sort => sort.Rating);
+                    break;
+                case SortState.DateDesc:
+                    adverts = adverts.OrderByDescending(sort => sort.DateTime);
+                    break;
+                case SortState.DateAsc:
+                    adverts = adverts.OrderBy(sort => sort.DateTime);
+                    break;
+            }
+
+            var count = await adverts.CountAsync();
+            var items = await adverts.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+
             IndexViewModel indexVM = new IndexViewModel
             {
-                Adverts = adverts
+                PageViewModel = new PageViewModel(count, page, pageSize),
+                SortViewModel = new SortViewModel(sortOrder),
+                FilterViewModel = new FilterViewModel(name, content),
+                Adverts = items
             };
 
             return View(indexVM);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -74,6 +108,7 @@ namespace WebAppAdverts.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult Edit(Guid advertId)
         {
             var editAdvert = _operationDb.GetAdvertisements().Where(adv => adv.Id == advertId).FirstOrDefault();
@@ -108,6 +143,33 @@ namespace WebAppAdverts.Controllers
             _operationDb.UpdateAdbert(advert);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult DeleteModal(Guid advertId)
+        {
+            ViewBag.AdvertId = advertId;
+
+            return View();
+        }
+
+        [HttpPost, ActionName("DeleteModal")]
+        public IActionResult DeleteConfirmed(Guid advertId)
+        {
+            var advertDelete = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == advertId);
+
+            if (advertDelete != null)
+            {
+                _operationDb.DeleteAdvert(advertDelete);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult ImageModal(byte[] image)
+        {
+            return View(image);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -34,10 +34,9 @@ namespace BusinessLogic.DataManager
             _db.CreateModel<Advert>(advertisement);
         }
 
-        public void DeleteAdvert(Guid advertId)
+        public void DeleteAdvert(Advert advertDelete)
         {
-            var delAdvert = _db.GetModelFirstOfDefault<Advert>(adv => adv.Id == advertId);
-            _db.RemoveModel<Advert>(delAdvert);
+            _db.RemoveModel<Advert>(advertDelete);
         }
 
         public IQueryable<Advert> GetAdvertisements()

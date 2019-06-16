@@ -9,14 +9,8 @@ namespace WebAppAdverts.Models
     public class IndexViewModel
     {
         public IEnumerable<Advert> Adverts { get; set; }
-        public Advert SearchAdvert { get; set; }
-
-        public IndexViewModel()
-        {
-            SearchAdvert = new Advert()
-            {
-                User = new User()
-            };
-        }
+        public PageViewModel PageViewModel { get; set; }
+        public FilterViewModel FilterViewModel { get; set; }
+        public SortViewModel SortViewModel { get; set; }
     }
 }

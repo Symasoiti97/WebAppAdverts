@@ -1,0 +1,17 @@
+﻿@*@model Guid*@
+@{
+    Layout = null;
+}
+<div class="modal-content">
+    <div class="modal-body">
+        <h4 class="modal-title">Are you sure you want to delete the advert?</h4>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-secondary" data-dismiss="modal">No</a>
+        @*@using (Html.BeginForm("DeleteModal", "Home", FormMethod.Post))
+        {
+            <input asp-for="ToString()"/>
+            <button type="submit">Yes</button>
+        }*@
+    </div>
+</div>
