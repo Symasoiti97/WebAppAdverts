@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Adding Advert";
+}
+<form asp-action="Create" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <p>
+        <label>Content</label>
+        <input name="Content" class="form-control" />
+    </p>
+    <p>
+        <label>Image</label>
+        <input name="Image" type="file" class="form-control" />
+    </p>
+    <p>
+        <input type="submit" value="Add" />
+    </p>
+</form>

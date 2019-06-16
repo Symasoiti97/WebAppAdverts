@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using BusinessLogic.DataManager;
+using DataBase;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,7 +29,11 @@ namespace WebAppAdverts
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            string conntetion = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(conntetion));
+            services.AddScoped(typeof(ApplicationContext));
+            services.AddScoped(typeof(OperationDb));
+            services.AddScoped(typeof(ConcreteOperationDb));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

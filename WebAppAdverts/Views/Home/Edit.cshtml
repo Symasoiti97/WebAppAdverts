@@ -1,0 +1,21 @@
+﻿@model CreateViewModel
+@{
+    ViewBag.Title = "Editing Advertisement";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <input asp-for="AdvertId" type="hidden" />
+    <p>
+        <label>Content</label>
+        <input name="Content" asp-for="Content" class="form-control" />
+    </p>
+    <p>
+        <label>Image</label>
+        <input name="Image" asp-for="Image" type="file" class="form-control" />
+    </p>
+    <p>
+        <input type="submit" value="Edit" />
+    </p>
+</form>

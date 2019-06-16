@@ -1,3 +1,56 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Adverts";
 }
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+
+<div class="row position-fixed">
+    <div class="col-md-2">
+        <form method="get">
+            <div>
+                <label class="control-label">Author: </label>
+                @Html.TextBox("name", Model.SearchAdvert.User.Name, htmlAttributes: new { @class = "form-control" })
+                <label class="control-label">Content: </label>
+                @Html.TextBox("content", Model.SearchAdvert.Content, htmlAttributes: new { @class = "form-control" })
+                <br>
+                <input class="btn btn-default" type="submit" value="Search" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-10">
+        @foreach (var advert in Model.Adverts)
+        {
+            <div class="row">
+                <div class="col-md-2">
+                    @if (advert.Image != null)
+                    {
+                        <img class="img-thumbnail" src="data:image/jpeg;base64,@(Convert.ToBase64String(advert.Image))" />
+                    }
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <form method="post">
+                            <label class="text-left">Date added: @advert.DateTime.ToShortDateString()</label>
+                            <label class="text-left">Author: @advert.User.Name</label>
+                            <label class="text-right">
+                                <a class="btn btn-link" asp-controller="Home" asp-action="Edit" asp-route-advertId="@advert.Id">Edit</a>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <label>@advert.Content</label>
+                    </div>
+                </div>
+            </div>
+            <br />
+        }
+    </div>
+</div>
