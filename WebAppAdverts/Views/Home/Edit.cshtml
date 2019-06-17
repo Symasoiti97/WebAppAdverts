@@ -3,19 +3,24 @@
     ViewBag.Title = "Editing Advertisement";
 }
 
-<h2>@ViewData["Title"]</h2>
-
-<form asp-action="Edit" asp-controller="Home" method="post" enctype="multipart/form-data">
-    <input asp-for="AdvertId" type="hidden" />
-    <p>
-        <label>Content</label>
-        <input name="Content" asp-for="Content" class="form-control" />
-    </p>
-    <p>
-        <label>Image</label>
-        <input name="Image" asp-for="Image" type="file" class="form-control" />
-    </p>
-    <p>
-        <input type="submit" value="Edit" />
-    </p>
-</form>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <h2>@ViewData["Title"]</h2>
+        <form asp-action="Edit" asp-controller="Home" method="post" enctype="multipart/form-data">
+            <input asp-for="AdvertId" type="hidden" />
+            <p>
+                <label>Content</label>
+                <textarea name="Content" asp-for="Content" class="form-control" rows="5"></textarea>
+            </p>
+            <p>
+                <label>Image</label>
+                <input name="Image" asp-for="Image" type="file" class="form-control" />
+            </p>
+            <p>
+                <input type="submit" value="Edit" />
+            </p>
+        </form>
+    </div>
+    <div class="col-md-7"></div>
+</div>

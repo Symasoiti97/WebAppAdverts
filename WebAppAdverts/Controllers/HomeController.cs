@@ -21,7 +21,7 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(string name, string content, int page = 1, SortState sortOrder = SortState.NameAsc)
+        public async Task<IActionResult> Index(string name, string content, int page = 1, SortState sortOrder = SortState.DateDesc)
         {
             int pageSize = 3;
 
@@ -127,6 +127,7 @@ namespace WebAppAdverts.Controllers
         {
             Advert advert = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == advertVM.AdvertId);
             advert.Content = advertVM.Content;
+            advert.DateTime = DateTime.Now;
 
             if (advertVM.Image != null)
             {
@@ -148,9 +149,7 @@ namespace WebAppAdverts.Controllers
         [HttpGet]
         public IActionResult DeleteModal(Guid advertId)
         {
-            ViewBag.AdvertId = advertId;
-
-            return View();
+            return View(advertId);
         }
 
         [HttpPost, ActionName("DeleteModal")]
@@ -167,8 +166,9 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
-        public IActionResult ImageModal(byte[] image)
+        public IActionResult ImageModal(Guid advertId)
         {
+            var image = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == advertId).Image;
             return View(image);
         }
 

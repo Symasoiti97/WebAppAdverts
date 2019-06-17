@@ -17,19 +17,24 @@
     </environment>
 </head>
 <body>
+
+    <div id="modDialog" class="modal fade" role="dialog">
+        <dib id="dialogContent" class="modal-dialog modal-sm"></dib>
+    </div>
+
     <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href="#" class="navbar-brand">Home</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a asp-action="Index">Main</a></li>
-                        <li class="active"><a asp-action="Create">Add advert</a></li>
-                        <li class="active"><a href="#">About</a></li>
-                    </ul>
-                </div>
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Home</a>
             </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a asp-action="Index">Main</a></li>
+                    <li class="active"><a asp-action="Create">Add advert</a></li>
+                    <li class="active"><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <partial name="_CookieConsentPartial" />
