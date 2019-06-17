@@ -1,4 +1,6 @@
 ﻿using BusinessLogic.DataManager;
+using BusinessLogic.Options;
+using BusinessLogic.Services;
 using DataBase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,11 +31,16 @@ namespace WebAppAdverts
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.Configure<AppOptions>(Configuration);
+            services.AddSingleton<IReCaptchaService, GoogleReCaptchaService>();
+
             string conntetion = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(conntetion));
+
             services.AddScoped(typeof(ApplicationContext));
             services.AddScoped(typeof(OperationDb));
             services.AddScoped(typeof(ConcreteOperationDb));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

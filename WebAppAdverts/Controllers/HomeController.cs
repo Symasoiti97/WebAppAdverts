@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic.DataManager;
+using BusinessLogic.Services;
 using DataBase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,12 @@ namespace WebAppAdverts.Controllers
     public class HomeController : Controller
     {
         private ConcreteOperationDb _operationDb;
+        private IReCaptchaService _reCaptcha;
 
-        public HomeController(ConcreteOperationDb operationDb)
+        public HomeController(ConcreteOperationDb operationDb, IReCaptchaService reCaptcha)
         {
             _operationDb = operationDb;
+            _reCaptcha = reCaptcha;
         }
 
         [HttpGet]
@@ -80,8 +83,22 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateViewModel createVM)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(CreateViewModel createVM)
         {
+            if (ModelState.IsValid)
+            {
+                var captchaResponce = await _reCaptcha.Validate(Request.Form);
+
+                if (!captchaResponce.Success)
+                {
+                    ModelState.AddModelError("reCaptchaError",
+                    "reCAPTCHA error occured. Please try again.");
+
+                    return View(createVM);
+                }
+            }
+
             Advert advertisement = new Advert
             {
                 Content = createVM.Content,
