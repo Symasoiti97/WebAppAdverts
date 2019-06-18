@@ -1,6 +1,7 @@
 ﻿@using Microsoft.Extensions.Options;
 @using BusinessLogic.Options;
 @inject IOptions<AppOptions> AppOptions
+@model CreateViewModel
 @{
     ViewBag.Title = "Adding Advert";
 }
@@ -9,27 +10,30 @@
     <div class="col-md-1"></div>
     <div class="col-md-4">
         <form asp-action="Create" asp-controller="Home" method="post" enctype="multipart/form-data">
-            <p class="form-group">
-                <label class="control-label">Content</label>
-                <textarea name="Content" rows="5" class="form-control"></textarea>
+            <p>
+                <label>Content</label>
+                @Html.ValidationMessage("Content", new { @class = "text-danger" })
+                <textarea name="Content" asp-for="Content" class="form-control" rows="5"></textarea>
             </p>
-            <p class="form-group">
-                <label class="control-label">Image</label>
-                <input name="Image" type="file" class="form-control" />
+            <p>
+                <label>Image</label>
+                <img class="img img-responsive" id="image" src="#" alt="" />
+                @Html.ValidationMessage("Image", new { @class = "text-danger" })
+                <input name="Image" asp-for="Image" type="file" id="imgInput" class="form-control" />
             </p>
-            <p class="form-group">
+            <p>
                 <div class="g-recaptcha" data-sitekey="@AppOptions.Value.ReCaptcha.SiteKey"></div>
                 @Html.ValidationMessage("ReCaptchaError", new { @class = "text-danger" })
             </p>
-            <p class="form-group">
-                <button type="submit" class="btn btn-default">Create</button>
+            <p>
+                <input type="submit" value="Edit" />
             </p>
         </form>
     </div>
     <div class="col-md-7"></div>
 </div>
 
-@section Scripts {
+@section Scripts{
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
     <script src="https://www.google.com/recaptcha/api.js"></script>
 }

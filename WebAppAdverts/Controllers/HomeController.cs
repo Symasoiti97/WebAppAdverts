@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BusinessLogic.DataManager;
 using BusinessLogic.Services;
 using DataBase.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAppAdverts.Models;
@@ -98,6 +99,10 @@ namespace WebAppAdverts.Controllers
                     return View(createVM);
                 }
             }
+            else
+            {
+                return View(createVM);
+            }
 
             Advert advertisement = new Advert
             {
@@ -130,18 +135,25 @@ namespace WebAppAdverts.Controllers
         {
             var editAdvert = _operationDb.GetAdvertisements().Where(adv => adv.Id == advertId).FirstOrDefault();
 
-            CreateViewModel advertVM = new CreateViewModel
+            EditViewModel advertVM = new EditViewModel
             {
                 AdvertId = editAdvert.Id,
-                Content = editAdvert.Content
+                Content = editAdvert.Content,
+                ImageByte = editAdvert.Image
             };
 
             return View(advertVM);
         }
 
         [HttpPost]
-        public IActionResult Edit(CreateViewModel advertVM)
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(EditViewModel advertVM)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(advertVM);
+            }
+
             Advert advert = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == advertVM.AdvertId);
             advert.Content = advertVM.Content;
             advert.DateTime = DateTime.Now;

@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebAppAdverts.Models
 {
-    public class CreateViewModel
+    public class EditViewModel
     {
         public Guid AdvertId { get; set; }
         [Required]
         public string Content { get; set; }
-        [Required]
+        public byte[] ImageByte { get; set; }
         public IFormFile Image { get; set; }
     }
 }
