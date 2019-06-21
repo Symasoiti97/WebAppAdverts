@@ -16,8 +16,10 @@ namespace BusinessLogic.Services
 
         public GoogleReCaptchaService(IOptions<AppOptions> optionsAccessor)
         {
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://www.google.com");
+            _httpClient = new HttpClient
+            {
+                BaseAddress = new Uri("https://www.google.com")
+            };
 
             _options = optionsAccessor.Value.ReCaptcha;
         }
@@ -27,9 +29,9 @@ namespace BusinessLogic.Services
             var gRecaptchaResponse = form["g-recaptcha-response"];
             var content = new FormUrlEncodedContent(new[]
             {
-            new KeyValuePair<string, string>("secret", _options.SecretKey),
-            new KeyValuePair<string, string>("response", gRecaptchaResponse)
-        });
+                new KeyValuePair<string, string>("secret", _options.SecretKey),
+                new KeyValuePair<string, string>("response", gRecaptchaResponse)
+            });
 
             var response = await _httpClient.PostAsync("/recaptcha/api/siteverify", content);
             var resultContent = await response.Content.ReadAsStringAsync();

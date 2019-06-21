@@ -4,11 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic.DataManager;
+using BusinessLogic.Options;
 using BusinessLogic.Services;
 using DataBase.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using WebAppAdverts.Models;
 
 namespace WebAppAdverts.Controllers
@@ -17,18 +19,22 @@ namespace WebAppAdverts.Controllers
     {
         private ConcreteOperationDb _operationDb;
         private IReCaptchaService _reCaptcha;
+        private CreateService _createAdvert;
+        private readonly int _countAdvertsByAuftor;
+        private readonly int _countAdvertsByPage;
 
-        public HomeController(ConcreteOperationDb operationDb, IReCaptchaService reCaptcha)
+        public HomeController(ConcreteOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options, CreateService createAdvert)
         {
             _operationDb = operationDb;
             _reCaptcha = reCaptcha;
+            _countAdvertsByPage = options.Value.IndexOptions.CountAdvertsByPage;
+            _countAdvertsByAuftor = options.Value.IndexOptions.CountAdvertsByAuftor;
+            _createAdvert = createAdvert;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index(string name, string content, int page = 1, SortState sortOrder = SortState.DateDesc)
         {
-            int pageSize = 3;
-
             IQueryable<Advert> adverts = _operationDb.GetAdvertisements();
 
             if (!String.IsNullOrEmpty(name))
@@ -64,11 +70,11 @@ namespace WebAppAdverts.Controllers
             }
 
             var count = await adverts.CountAsync();
-            var items = await adverts.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+            var items = await adverts.Skip((page - 1) * _countAdvertsByPage).Take(_countAdvertsByPage).ToListAsync();
 
             IndexViewModel indexVM = new IndexViewModel
             {
-                PageViewModel = new PageViewModel(count, page, pageSize),
+                PageViewModel = new PageViewModel(count, page, _countAdvertsByPage),
                 SortViewModel = new SortViewModel(sortOrder),
                 FilterViewModel = new FilterViewModel(name, content),
                 Adverts = items
@@ -87,7 +93,11 @@ namespace WebAppAdverts.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateViewModel createVM)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+            {
+                return View(createVM);
+            }
+            else
             {
                 var captchaResponce = await _reCaptcha.Validate(Request.Form);
 
@@ -99,33 +109,11 @@ namespace WebAppAdverts.Controllers
                     return View(createVM);
                 }
             }
-            else
-            {
-                return View(createVM);
-            }
 
-            Advert advertisement = new Advert
-            {
-                Content = createVM.Content,
-                DateTime = DateTime.Now,
-                Rating = 0,
-                Number = 0,
-                UserId = new Guid("58222fde-d3f2-4eb3-997f-08d6f101052e")
-            };
 
-            if (createVM.Image != null)
-            {
-                byte[] imageData = null;
+            var advert = _createAdvert.CreateAdvert(createVM.Content, createVM.Image, new Guid("58222fde-d3f2-4eb3-997f-08d6f101052e"));
 
-                using (var binaryReader = new BinaryReader(createVM.Image.OpenReadStream()))
-                {
-                    imageData = binaryReader.ReadBytes((int)createVM.Image.Length);
-                }
-
-                advertisement.Image = imageData;
-            }
-
-            _operationDb.AddAdvert(advertisement);
+            _operationDb.AddAdvert(advert);
 
             return RedirectToAction("Index");
         }

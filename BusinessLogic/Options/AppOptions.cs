@@ -3,5 +3,6 @@
     public class AppOptions
     {
         public ReCaptchaOptions ReCaptcha { get; set; }
+        public IndexOptions IndexOptions { get; set; }
     }
 }
