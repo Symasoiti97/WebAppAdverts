@@ -31,7 +31,7 @@ namespace WebAppAdverts
 
             services.Configure<AppOptions>(Configuration);
 
-            services.AddTransient<CreateService>();
+            services.AddTransient<IConverterService<byte[], IFormFile>, ConvertImageToBytes>();
 
             services.AddSingleton<IReCaptchaService, GoogleReCaptchaService>();
 

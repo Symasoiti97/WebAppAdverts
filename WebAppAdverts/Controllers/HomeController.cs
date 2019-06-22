@@ -19,17 +19,17 @@ namespace WebAppAdverts.Controllers
     {
         private ConcreteOperationDb _operationDb;
         private IReCaptchaService _reCaptcha;
-        private CreateService _createAdvert;
+        private IConverterService<byte[], IFormFile> _convertImageToBytes;
         private readonly int _countAdvertsByAuftor;
         private readonly int _countAdvertsByPage;
 
-        public HomeController(ConcreteOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options, CreateService createAdvert)
+        public HomeController(ConcreteOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options, IConverterService<byte[], IFormFile> convertImageToBytes)
         {
             _operationDb = operationDb;
             _reCaptcha = reCaptcha;
             _countAdvertsByPage = options.Value.IndexOptions.CountAdvertsByPage;
             _countAdvertsByAuftor = options.Value.IndexOptions.CountAdvertsByAuftor;
-            _createAdvert = createAdvert;
+            _convertImageToBytes = convertImageToBytes;
         }
 
         [HttpGet]
@@ -110,8 +110,16 @@ namespace WebAppAdverts.Controllers
                 }
             }
 
+            Advert advert = new Advert
+            {
+                Content = createVM.Content,
+                DateTime = DateTime.Now,
+                Rating = 0,
+                Number = 0,
+                UserId = new Guid("58222fde-d3f2-4eb3-997f-08d6f101052e")
+            };
 
-            var advert = _createAdvert.CreateAdvert(createVM.Content, createVM.Image, new Guid("58222fde-d3f2-4eb3-997f-08d6f101052e"));
+            advert.Image = _convertImageToBytes.Convert(createVM.Image);
 
             _operationDb.AddAdvert(advert);
 
@@ -135,28 +143,18 @@ namespace WebAppAdverts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(EditViewModel advertVM)
+        public IActionResult Edit(EditViewModel editVM)
         {
             if (!ModelState.IsValid)
             {
-                return View(advertVM);
+                return View(editVM);
             }
 
-            Advert advert = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == advertVM.AdvertId);
-            advert.Content = advertVM.Content;
+            Advert advert = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == editVM.AdvertId);
+            advert.Content = editVM.Content;
             advert.DateTime = DateTime.Now;
 
-            if (advertVM.Image != null)
-            {
-                byte[] imageData = null;
-
-                using (var binaryReader = new BinaryReader(advertVM.Image.OpenReadStream()))
-                {
-                    imageData = binaryReader.ReadBytes((int)advertVM.Image.Length);
-                }
-
-                advert.Image = imageData;
-            }
+            advert.Image = _convertImageToBytes.Convert(editVM.Image);
 
             _operationDb.UpdateAdbert(advert);
 
