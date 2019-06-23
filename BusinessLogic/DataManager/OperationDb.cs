@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace BusinessLogic.DataManager
 {
-    public class OperationDb
+    public class OperationDb : IOperationDb
     {
         private readonly ApplicationContext _db;
 
@@ -26,6 +26,11 @@ namespace BusinessLogic.DataManager
             return _db.Set<T>();
         }
 
+        public IQueryable<T> GetModels<T>(Expression<Func<T, bool>> predicate) where T : class, IEntity
+        {
+            return _db.Set<T>().Where(predicate);
+        }
+
         public void RemoveModel<T>(T model) where T : class, IEntity
         {
             _db.Set<T>().Remove(model);
@@ -37,16 +42,6 @@ namespace BusinessLogic.DataManager
             var m = _db.Set<T>().Find(model.Id);
             m = model;
             _db.SaveChanges();
-        }
-
-        public T GetModelFirstOfDefault<T>(Expression<Func<T, bool>> predicate) where T : class, IEntity
-        {
-            return _db.Set<T>().Where(predicate).FirstOrDefault();
-        }
-
-        public IQueryable<T> GetModels<T>(Expression<Func<T, bool>> predicate) where T : class, IEntity
-        {
-            return _db.Set<T>().Where(predicate);
         }
     }
 }

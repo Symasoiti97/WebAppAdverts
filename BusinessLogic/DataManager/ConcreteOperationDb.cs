@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace BusinessLogic.DataManager
 {
-    public class ConcreteOperationDb
+    public class ConcreteOperationDb : IConcreteOperationDb
     {
-        private OperationDb _db;
+        private readonly IOperationDb _db;
 
-        public ConcreteOperationDb(OperationDb db)
+        public ConcreteOperationDb(IOperationDb db)
         {
             _db = db;
         }
@@ -28,24 +28,24 @@ namespace BusinessLogic.DataManager
             return _db.GetModels<User>();
         }
 
-        public void AddAdvert(Advert advertisement)
+        public void AddAdvert(Advert advert)
         {
-            _db.CreateModel<Advert>(advertisement);
+            _db.CreateModel<Advert>(advert);
         }
 
-        public void DeleteAdvert(Advert advertDelete)
+        public void DeleteAdvert(Advert advert)
         {
-            _db.RemoveModel<Advert>(advertDelete);
+            _db.RemoveModel<Advert>(advert);
         }
 
-        public IQueryable<Advert> GetAdvertisements()
+        public IQueryable<Advert> GetAdverts()
         {
             return _db.GetModels<Advert>().Include(x => x.User);
         }
 
-        public void UpdateAdbert(Advert advertisement)
+        public void UpdateAdvert(Advert advert)
         {
-            _db.UpdateModel<Advert>(advertisement);
+            _db.UpdateModel<Advert>(advert);
         }
     }
 }

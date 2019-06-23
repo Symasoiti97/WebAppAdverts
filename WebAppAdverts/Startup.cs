@@ -39,8 +39,8 @@ namespace WebAppAdverts
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(conntetion));
 
             services.AddScoped(typeof(ApplicationContext));
-            services.AddScoped(typeof(OperationDb));
-            services.AddScoped(typeof(ConcreteOperationDb));
+            services.AddScoped(typeof(IOperationDb), typeof(OperationDb));
+            services.AddScoped(typeof(IConcreteOperationDb), typeof(ConcreteOperationDb));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

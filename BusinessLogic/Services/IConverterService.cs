@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessLogic.Services
+﻿namespace BusinessLogic.Services
 {
     public interface IConverterService<U,V>
     {

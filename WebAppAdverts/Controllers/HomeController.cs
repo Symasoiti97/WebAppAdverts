@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic.DataManager;
@@ -9,7 +8,6 @@ using BusinessLogic.Services;
 using DataBase.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using WebAppAdverts.Models;
 
@@ -17,13 +15,13 @@ namespace WebAppAdverts.Controllers
 {
     public class HomeController : Controller
     {
-        private ConcreteOperationDb _operationDb;
-        private IReCaptchaService _reCaptcha;
-        private IConverterService<byte[], IFormFile> _convertImageToBytes;
+        private readonly IConcreteOperationDb _operationDb;
+        private readonly IReCaptchaService _reCaptcha;
+        private readonly IConverterService<byte[], IFormFile> _convertImageToBytes;
         private readonly int _countAdvertsByAuftor;
         private readonly int _countAdvertsByPage;
 
-        public HomeController(ConcreteOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options, IConverterService<byte[], IFormFile> convertImageToBytes)
+        public HomeController(IConcreteOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options, IConverterService<byte[], IFormFile> convertImageToBytes)
         {
             _operationDb = operationDb;
             _reCaptcha = reCaptcha;
@@ -33,9 +31,9 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(string name, string content, int page = 1, SortState sortOrder = SortState.DateDesc)
+        public IActionResult Index(string name, string content, int page = 1, SortState sortOrder = SortState.DateDesc)
         {
-            IQueryable<Advert> adverts = _operationDb.GetAdvertisements();
+            IQueryable<Advert> adverts = _operationDb.GetAdverts();
 
             if (!String.IsNullOrEmpty(name))
             {
@@ -69,8 +67,8 @@ namespace WebAppAdverts.Controllers
                     break;
             }
 
-            var count = await adverts.CountAsync();
-            var items = await adverts.Skip((page - 1) * _countAdvertsByPage).Take(_countAdvertsByPage).ToListAsync();
+            var count = adverts.Count();
+            var items = adverts.Skip((page - 1) * _countAdvertsByPage).Take(_countAdvertsByPage).ToList();
 
             IndexViewModel indexVM = new IndexViewModel
             {
@@ -129,7 +127,7 @@ namespace WebAppAdverts.Controllers
         [HttpGet]
         public IActionResult Edit(Guid advertId)
         {
-            var editAdvert = _operationDb.GetAdvertisements().Where(adv => adv.Id == advertId).FirstOrDefault();
+            var editAdvert = _operationDb.GetAdverts().Where(adv => adv.Id == advertId).FirstOrDefault();
 
             EditViewModel advertVM = new EditViewModel
             {
@@ -150,13 +148,13 @@ namespace WebAppAdverts.Controllers
                 return View(editVM);
             }
 
-            Advert advert = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == editVM.AdvertId);
+            Advert advert = _operationDb.GetAdverts().FirstOrDefault(adv => adv.Id == editVM.AdvertId);
             advert.Content = editVM.Content;
             advert.DateTime = DateTime.Now;
 
             advert.Image = _convertImageToBytes.Convert(editVM.Image);
 
-            _operationDb.UpdateAdbert(advert);
+            _operationDb.UpdateAdvert(advert);
 
             return RedirectToAction("Index");
         }
@@ -170,7 +168,7 @@ namespace WebAppAdverts.Controllers
         [HttpPost, ActionName("DeleteModal")]
         public IActionResult DeleteConfirmed(Guid advertId)
         {
-            var advertDelete = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == advertId);
+            var advertDelete = _operationDb.GetAdverts().FirstOrDefault(adv => adv.Id == advertId);
 
             if (advertDelete != null)
             {
@@ -183,7 +181,7 @@ namespace WebAppAdverts.Controllers
         [HttpGet]
         public IActionResult ImageModal(Guid advertId)
         {
-            var image = _operationDb.GetAdvertisements().FirstOrDefault(adv => adv.Id == advertId).Image;
+            var image = _operationDb.GetAdverts().FirstOrDefault(adv => adv.Id == advertId).Image;
             return View(image);
         }
 
