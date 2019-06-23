@@ -1,0 +1,124 @@
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Request starting HTTP/1.1 DEBUG http://localhost:51436/  0
+Request finished in 124.1221ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (72ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (40ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2782.8943ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 1002.8953ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 5078.5054ms
+Request finished in 6064.8219ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:51436/  0
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Request finished in 165.3497ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+Get Adverts
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (53ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1654.2247ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 880.4059ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 3089.221ms
+Request finished in 3834.3458ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+Get Adverts
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 88.955ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 239.3445ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 445.7053ms
+Request finished in 540.3345ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+Get Adverts
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Request starting HTTP/1.1 DEBUG http://localhost:51436/  0
+Request finished in 266.9753ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 14:53
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2125.8631ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 1048.5219ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 3940.1712ms
+Request finished in 5129.3558ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 8.5318ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 293.2746ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 367.9332ms
+Request finished in 403.1425ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.044ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 170.0344ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 339.1132ms
+Request finished in 875.3896ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 14:53
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (23ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 388.3745ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 552.389ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 1003.517ms
+Request finished in 1039.0074ms 200 text/html; charset=utf-8
