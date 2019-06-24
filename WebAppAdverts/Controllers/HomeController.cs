@@ -26,7 +26,8 @@ namespace WebAppAdverts.Controllers
         private readonly int _countAdvertsByAuftor;
         private readonly int _countAdvertsByPage;
 
-        public HomeController(IConcreteOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options, IConverterService<byte[], IFormFile> convertImageToBytes)
+        public HomeController(IConcreteOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options
+            ,IConverterService<byte[], IFormFile> convertImageToBytes)
         {
             _operationDb = operationDb;
             _reCaptcha = reCaptcha;
@@ -36,18 +37,18 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string name = "", string content = "", int page = 1, SortState sortOrder = SortState.DateDesc)
+        public IActionResult Index(string nameSearch = "", string contentSearch = "", int currentPage = 1, SortState sortOrder = SortState.DateDesc)
         {
             IQueryable<Advert> adverts = _operationDb.GetAdverts();
 
-            if (!String.IsNullOrEmpty(name))
+            if (!String.IsNullOrEmpty(nameSearch))
             {
-                adverts = adverts.Where(adv => adv.User.Name.Contains(name));
+                adverts = adverts.Where(adv => adv.User.Name.Contains(nameSearch));
             }
 
-            if (!String.IsNullOrEmpty(content))
+            if (!String.IsNullOrEmpty(contentSearch))
             {
-                adverts = adverts.Where(adv => adv.Content.Contains(content));
+                adverts = adverts.Where(adv => adv.Content.Contains(contentSearch));
             }
 
             switch (sortOrder)
@@ -73,13 +74,13 @@ namespace WebAppAdverts.Controllers
             }
 
             var count = adverts.Count();
-            var items = adverts.Skip((page - 1) * _countAdvertsByPage).Take(_countAdvertsByPage).ToList();
+            var items = adverts.Skip((currentPage - 1) * _countAdvertsByPage).Take(_countAdvertsByPage).ToList();
 
             IndexViewModel indexVM = new IndexViewModel
             {
-                PageViewModel = new PageViewModel(count, page, _countAdvertsByPage),
+                PageViewModel = new PageViewModel(count, currentPage, _countAdvertsByPage),
                 SortViewModel = new SortViewModel(sortOrder),
-                FilterViewModel = new FilterViewModel(name, content),
+                FilterViewModel = new FilterViewModel(nameSearch, contentSearch),
                 Adverts = items
             };
 
@@ -112,6 +113,7 @@ namespace WebAppAdverts.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
             return RedirectToAction("Index");
         }
 
@@ -128,7 +130,6 @@ namespace WebAppAdverts.Controllers
             {
                 return RedirectToAction("Index");
             }
-            
         }
 
         [HttpPost]
@@ -198,6 +199,7 @@ namespace WebAppAdverts.Controllers
             Advert advert = _operationDb.GetAdverts().FirstOrDefault(adv => adv.Id == editVM.AdvertId);
             advert.Content = editVM.Content;
             advert.DateTime = DateTime.Now;
+
             if (editVM.Image != null)
             {
                 advert.Image = _convertImageToBytes.Convert(editVM.Image);
