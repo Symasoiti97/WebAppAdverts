@@ -24,26 +24,26 @@
         <div class="btn-group-vertical" role="group">
             <br>
             <a class="btn btn-primary"
-                    asp-action="Index"
-                    asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
-                    asp-route-name="@(Model.FilterViewModel.Name)"
-                    asp-route-content="@(Model.FilterViewModel.Content)">
+               asp-action="Index"
+               asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-content="@(Model.FilterViewModel.Content)">
                 NameSort
             </a>
             <br>
             <a class="btn btn-primary"
-                    asp-action="Index"
-                    asp-route-sortOrder="@(Model.SortViewModel.RatingSort)"
-                    asp-route-name="@(Model.FilterViewModel.Name)"
-                    asp-route-content="@(Model.FilterViewModel.Content)">
+               asp-action="Index"
+               asp-route-sortOrder="@(Model.SortViewModel.RatingSort)"
+               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-content="@(Model.FilterViewModel.Content)">
                 RatingSort
             </a>
             <br>
             <a class="btn btn-primary"
-                    asp-action="Index"
-                    asp-route-sortOrder="@(Model.SortViewModel.DateSort)"
-                    asp-route-name="@(Model.FilterViewModel.Name)"
-                    asp-route-content="@(Model.FilterViewModel.Content)">
+               asp-action="Index"
+               asp-route-sortOrder="@(Model.SortViewModel.DateSort)"
+               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-content="@(Model.FilterViewModel.Content)">
                 DateSort
             </a>
         </div>
@@ -52,36 +52,36 @@
     <div class="col-md-10">
         @foreach (var advert in Model.Adverts)
         {
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <form method="get">
-                    <label>Date added: @advert.DateTime.ToShortDateString()</label>
-                    <label>Author: @advert.User.Name</label>
-                    <label>Rating: @advert.Rating</label>
-                    <div class="navbar-right">
-                        <label class="btn btn-default btn-xs">
-                            <a class="text-primary" asp-controller="Home" asp-action="Edit" asp-route-advertId="@advert.Id">Edit</a>
-                        </label>
-                        <label class="btn btn-default btn-xs">
-                            <a class="text-danger deleteAdvert" asp-controller="Home" asp-action="DeleteModal" asp-route-advertId="@advert.Id">Delete</a>
-                        </label>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form method="get">
+                        <label>Date added: @advert.DateTime.ToShortDateString()</label>
+                        <label>Author: @advert.User.Name</label>
+                        <label>Rating: @advert.Rating</label>
+                        <div class="navbar-right">
+                            <label class="btn btn-default btn-xs">
+                                <a class="text-primary" asp-controller="Home" asp-action="Edit" asp-route-advertId="@advert.Id">Edit</a>
+                            </label>
+                            <label class="btn btn-default btn-xs">
+                                <a class="text-danger deleteAdvert" asp-controller="Home" asp-action="DeleteModal" asp-route-advertId="@advert.Id">Delete</a>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-2">
+                        @if (advert.Image != null)
+                        {
+                            <a class="deleteAdvert" asp-controller="Home" asp-action="ImageModal" asp-route-advertId="@advert.Id">
+                                <img class="img-thumbnail rounded" src="data:image/jpeg;base64,@(Convert.ToBase64String(advert.Image))" />
+                            </a>
+                        }
                     </div>
-                </form>
-            </div>
-            <div class="panel-body">
-                <div class="col-md-2">
-                    @if (advert.Image != null)
-                    {
-                        <a class="deleteAdvert" asp-controller="Home" asp-action="ImageModal" asp-route-advertId="@advert.Id">
-                            <img class="img-thumbnail rounded" src="data:image/jpeg;base64,@(Convert.ToBase64String(advert.Image))" />
-                        </a>
-                    }
-                </div>
-                <div class="col-md-8 ">
-                    <div>@advert.Content</div>
+                    <div class="col-md-8 ">
+                        <div>@advert.Content</div>
+                    </div>
                 </div>
             </div>
-        </div>
             <br>
         }
     </div>

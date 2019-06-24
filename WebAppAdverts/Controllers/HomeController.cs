@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLogic.DataManager;
 using BusinessLogic.Options;
 using BusinessLogic.Services;
 using DataBase.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -31,7 +36,7 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string name, string content, int page = 1, SortState sortOrder = SortState.DateDesc)
+        public IActionResult Index(string name = "", string content = "", int page = 1, SortState sortOrder = SortState.DateDesc)
         {
             IQueryable<Advert> adverts = _operationDb.GetAdverts();
 
@@ -82,9 +87,48 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> Login(string name)
+        {
+            User user = _operationDb.GetUsers().FirstOrDefault(u => u.Name == name);
+
+            if (user != null)
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimsIdentity.DefaultNameClaimType, name)
+                };
+
+                ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
-            return View();
+            var countAdverts = _operationDb.GetAdverts().Where(u => u.User.Name == User.FindFirstValue(ClaimTypes.Name)).Count();
+            if (countAdverts < _countAdvertsByAuftor)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
         }
 
         [HttpPost]
@@ -108,13 +152,15 @@ namespace WebAppAdverts.Controllers
                 }
             }
 
+            var userId = _operationDb.GetUsers().FirstOrDefault(u => u.Name == User.FindFirstValue(ClaimTypes.Name)).Id;
+
             Advert advert = new Advert
             {
                 Content = createVM.Content,
                 DateTime = DateTime.Now,
                 Rating = 0,
                 Number = 0,
-                UserId = new Guid("58222fde-d3f2-4eb3-997f-08d6f101052e")
+                UserId = userId
             };
 
             advert.Image = _convertImageToBytes.Convert(createVM.Image);
@@ -125,6 +171,7 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Edit(Guid advertId)
         {
             var editAdvert = _operationDb.GetAdverts().Where(adv => adv.Id == advertId).FirstOrDefault();
@@ -151,8 +198,10 @@ namespace WebAppAdverts.Controllers
             Advert advert = _operationDb.GetAdverts().FirstOrDefault(adv => adv.Id == editVM.AdvertId);
             advert.Content = editVM.Content;
             advert.DateTime = DateTime.Now;
-
-            advert.Image = _convertImageToBytes.Convert(editVM.Image);
+            if (editVM.Image != null)
+            {
+                advert.Image = _convertImageToBytes.Convert(editVM.Image);
+            }
 
             _operationDb.UpdateAdvert(advert);
 
@@ -160,6 +209,7 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult DeleteModal(Guid advertId)
         {
             return View(advertId);

@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+@using System.Security.Claims
 <html>
 <head>
     <meta charset="utf-8" />
@@ -27,12 +28,28 @@
             <div class="navbar-header">
                 <a href="#" class="navbar-brand">Home</a>
             </div>
-            <div>
+            <div class="navbar-nav">
                 <ul class="nav navbar-nav">
                     <li class="active"><a asp-action="Index">Main</a></li>
                     <li class="active"><a asp-action="Create">Add advert</a></li>
                     <li class="active"><a href="#">About</a></li>
                 </ul>
+            </div>
+            <div class="navbar-right">
+                <br>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <Label>Your name: @User.FindFirst(u => u.Type == ClaimTypes.Name).Value</Label>
+                    <a class="text-primary" asp-controller="Home" asp-action="Logout">LogOut</a>
+                }
+                else
+                {
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Get))
+                    {
+                        <input class="form-inline" type="text" name="name" placeholder="Your name" />
+                        <input class="btn btn-xs btn-success" type="submit" value="LogIn" />
+                    }
+                }
             </div>
         </div>
     </nav>
@@ -70,21 +87,20 @@
 
     @RenderSection("Scripts", required: false)
 
-    @section Scripts {
-        <script type="text/javascript">
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        $('#image').attr('src', e.target.result);
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
             }
-            $("#imgInput").change(function () {
-                readURL(this);
-            });
-        </script>
+        }
+        $("#imgInput").change(function () {
+            readURL(this);
+        });
+    </script>
     }
 </body>
 </html>
