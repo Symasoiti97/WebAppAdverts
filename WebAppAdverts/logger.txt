@@ -6481,3 +6481,2107 @@ Executing ViewResult, running view ImageModal.
 Executed ViewResult - view ImageModal executed in 5.3461ms.
 Executed action WebAppAdverts.Controllers.HomeController.ImageModal (WebAppAdverts) in 23.2261ms
 Request finished in 31.2549ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:51436/  0
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Request finished in 215.6928ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (35ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2300.0149ms.
+Executing ViewResult, running view Index.
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/css/bootstrap.css  
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+Executed ViewResult - view Index executed in 711.0236ms.
+The file /css/site.css was not modified
+The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 3947.855ms
+Request finished in 124.6339ms 304 text/css
+Request finished in 119.8915ms 304 text/css
+Request finished in 4866.333ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/lib/jquery/dist/jquery.js  
+Request starting HTTP/1.1 GET http://localhost:44318/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/js/bootstrap.js  
+The file /lib/jquery/dist/jquery.js was not modified
+The file /js/site.js was not modified
+The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+Request finished in 63.5752ms 304 application/javascript
+Request finished in 55.7254ms 304 application/javascript
+Request finished in 57.6074ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44318/?name=Admin&content=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 90.6455ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.4245ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 236.3902ms
+Request finished in 317.1102ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?sortOrder=NameAsc  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x.User].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 104.9624ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 109.581ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 323.7076ms
+Request finished in 566.9735ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 49.1492ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.5492ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 187.6662ms
+Request finished in 282.013ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=s&content=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 117.3688ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 273.6597ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 520.3282ms
+Request finished in 670.9442ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=das  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 147.7179ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 224.3718ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 453.3834ms
+Request finished in 492.4334ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=s  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 60.7771ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 95.2705ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 203.5117ms
+Request finished in 259.4431ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=sad  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 63.3199ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 111.9375ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 199.4529ms
+Request finished in 226.1181ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=sadasdsd  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 43.8099ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 96.5115ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 184.5652ms
+Request finished in 245.5521ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=sadsadasdas  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:49
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 48.4231ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.5179ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 211.39ms
+Request finished in 295.0715ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=dasdasdasd  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:50
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 50.9894ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.5515ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 179.1772ms
+Request finished in 233.2308ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=asdasdasd  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:50
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 37.7923ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 184.2848ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 274.9284ms
+Request finished in 338.3882ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?name=&content=asdasdasd  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:50
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 7044.3855ms.
+Request starting HTTP/1.1 GET http://localhost:44318/?name=dsf&content=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:51
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 3644.9576ms.
+Executing ViewResult, running view Index.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 4768.7617ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 8527.0168ms
+Request finished in 8567.8919ms 200 text/html; charset=utf-8
+Executed ViewResult - view Index executed in 11649.5872ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 18749.7954ms
+Request finished in 18788.1729ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=asdas&contentSearch=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:51
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (42ms) [Parameters=[@__nameSearch_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE (CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')
+Executed DbCommand (7ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE (CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 219.1426ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 9.2796ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 254.3739ms
+Request finished in 322.2003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=asd&contentSearch=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:51
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__nameSearch_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE (CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')
+Executed DbCommand (1ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE (CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 66.3539ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 13.3062ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 128.8117ms
+Request finished in 169.0685ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=asd&contentSearch=dasd  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:51
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (7ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__contentSearch_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE ((CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')) AND ((CHARINDEX(@__contentSearch_1, [x].[Content]) > 0) OR (@__contentSearch_1 = N''))
+Executed DbCommand (10ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__contentSearch_1='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE ((CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')) AND ((CHARINDEX(@__contentSearch_1, [x].[Content]) > 0) OR (@__contentSearch_1 = N''))
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 96.9063ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 17.7157ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 145.8226ms
+Request finished in 281.7554ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=asd&contentSearch=dasd  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:51
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (2ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__contentSearch_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE ((CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')) AND ((CHARINDEX(@__contentSearch_1, [x].[Content]) > 0) OR (@__contentSearch_1 = N''))
+Executed DbCommand (2ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__contentSearch_1='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE ((CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')) AND ((CHARINDEX(@__contentSearch_1, [x].[Content]) > 0) OR (@__contentSearch_1 = N''))
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 7964.4031ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 21.8384ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 8177.0661ms
+Request finished in 8222.3777ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=asd&contentSearch=dasd  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:56
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (9ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__contentSearch_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE ((CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')) AND ((CHARINDEX(@__contentSearch_1, [x].[Content]) > 0) OR (@__contentSearch_1 = N''))
+Executed DbCommand (2ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__contentSearch_1='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE ((CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')) AND ((CHARINDEX(@__contentSearch_1, [x].[Content]) > 0) OR (@__contentSearch_1 = N''))
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 993.7544ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 4362.2051ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 5636.6188ms
+Request finished in 6025.5906ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/lib/jquery/dist/jquery.js  
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/js/bootstrap.js  
+Request starting HTTP/1.1 GET http://localhost:44318/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/css/bootstrap.css  
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\site.css'
+Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\js\site.js'
+Request finished in 53.5785ms 200 text/css
+Request finished in 133.5043ms 200 application/javascript
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\bootstrap\dist\js\bootstrap.js'
+Request finished in 144.0447ms 200 text/css
+Request finished in 152.4649ms 200 application/javascript
+Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\jquery\dist\jquery.js'
+Request finished in 159.2508ms 200 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=&contentSearch=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:57
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 241.6365ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 164.6088ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 505.6245ms
+Request finished in 548.986ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/ImageModal?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55&_=1561737428652  
+Route matched with {action = "ImageModal", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ImageModal(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.ImageModal (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:57
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (6ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.ImageModal (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 40.97ms.
+Executing ViewResult, running view ImageModal.
+Executed ViewResult - view ImageModal executed in 18.2511ms.
+Executed action WebAppAdverts.Controllers.HomeController.ImageModal (WebAppAdverts) in 68.1903ms
+Request finished in 80.8255ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/DeleteModal?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55&_=1561737428653  
+Route matched with {action = "DeleteModal", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteModal(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.DeleteModal (WebAppAdverts) in 53.3692ms
+Request finished in 68.7044ms 401 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/DeleteModal?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55&_=1561737428654  
+Route matched with {action = "DeleteModal", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteModal(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.DeleteModal (WebAppAdverts) in 7.3828ms
+Request finished in 15.1034ms 401 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/DeleteModal?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55&_=1561737428655  
+Route matched with {action = "DeleteModal", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteModal(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.DeleteModal (WebAppAdverts) in 8.5531ms
+Request finished in 20.7285ms 401 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/DeleteModal?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55&_=1561737428656  
+Route matched with {action = "DeleteModal", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteModal(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.DeleteModal (WebAppAdverts) in 7.4261ms
+Request finished in 15.8383ms 401 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 25.3782ms
+Request finished in 50.1588ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:57
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 17.5736ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 35.3916ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 64.3804ms
+Request finished in 75.7191ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Login?name=Admin  
+Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Login (WebAppAdverts) - Validation state: Valid
+DataBase | Get Users | 18:57
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (10ms) [Parameters=[@__name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Name]
+FROM [Users] AS [u]
+WHERE [u].[Name] = @__name_0
+AuthenticationScheme: Cookies signed in.
+Executed action method WebAppAdverts.Controllers.HomeController.Login (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 152.3273ms.
+Executing RedirectResult, redirecting to /.
+Executed action WebAppAdverts.Controllers.HomeController.Login (WebAppAdverts) in 165.4618ms
+Request finished in 243.6792ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:57
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 45.9506ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 70.4439ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 129.618ms
+Request finished in 139.0082ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Logout  
+Route matched with {action = "Logout", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Logout (WebAppAdverts) - Validation state: Valid
+AuthenticationScheme: Cookies signed out.
+Executed action method WebAppAdverts.Controllers.HomeController.Logout (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 10.0038ms.
+Executing RedirectResult, redirecting to /.
+Executed action WebAppAdverts.Controllers.HomeController.Logout (WebAppAdverts) in 31.9901ms
+Request finished in 150.9252ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 18:57
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 19.4594ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 39.289ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 65.7277ms
+Request finished in 72.0185ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:03
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 27.9575ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 1585.931ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 1627.3961ms
+Request finished in 1636.0123ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/js/lightbox-plus-jquery.min.js  
+Request starting HTTP/1.1 GET http://localhost:44318/css/lightbox.min.css  
+Sending file. Request path: '/css/lightbox.min.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\lightbox.min.css'
+Sending file. Request path: '/js/lightbox-plus-jquery.min.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\js\lightbox-plus-jquery.min.js'
+Request finished in 18.4502ms 200 text/css
+Request finished in 23.405ms 200 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44318/images/loading.gif  
+Request starting HTTP/1.1 GET http://localhost:44318/images/prev.png  
+Request starting HTTP/1.1 GET http://localhost:44318/images/close.png  
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Request starting HTTP/1.1 GET http://localhost:44318/images/next.png  
+Sending file. Request path: '/images/loading.gif'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\images\loading.gif'
+Sending file. Request path: '/images/prev.png'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\images\prev.png'
+Request finished in 19.1923ms 200 image/png
+Request finished in 18.8268ms 200 image/gif
+Sending file. Request path: '/images/next.png'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\images\next.png'
+Request finished in 30.7457ms 200 image/png
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 66.504ms 200 image/x-icon
+Sending file. Request path: '/images/close.png'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\images\close.png'
+Request finished in 76.3468ms 200 image/png
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:03
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 22.6318ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 564.2734ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 603.5806ms
+Request finished in 619.4494ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 6.7703ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:04
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 24.8881ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 734.0669ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 773.1336ms
+Request finished in 787.0748ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 6.5716ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:04
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 19.8162ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 753.8459ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 784.3006ms
+Request finished in 795.2244ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 5.7128ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:04
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 14.4259ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 62.7799ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 97.776ms
+Request finished in 107.0807ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/js/lightbox-plus-jquery.min.js  
+Request starting HTTP/1.1 GET http://localhost:44318/css/lightbox.min.css  
+Sending file. Request path: '/css/lightbox.min.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\lightbox.min.css'
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+Sending file. Request path: '/js/lightbox-plus-jquery.min.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\js\lightbox-plus-jquery.min.js'
+Request finished in 6.8516ms 200 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/css/bootstrap.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\site.css'
+Request finished in 20.746ms 200 text/css
+Request finished in 15.6171ms 200 application/javascript
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+Request finished in 29.7798ms 200 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/lib/jquery/dist/jquery.js  
+Request starting HTTP/1.1 GET http://localhost:44318/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/js/bootstrap.js  
+Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\js\site.js'
+Request finished in 11.382ms 200 application/javascript
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\bootstrap\dist\js\bootstrap.js'
+Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\jquery\dist\jquery.js'
+Request finished in 14.668ms 200 application/javascript
+Request finished in 16.6419ms 200 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 6.703ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:04
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 15.752ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 706.2162ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 731.9581ms
+Request finished in 739.9272ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 12.232ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:05
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 18.4707ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 1368.779ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 1399.7592ms
+Request finished in 1419.162ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 5.3078ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:05
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 62.7374ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 665.2682ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 742.7416ms
+Request finished in 757.0761ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 7.0264ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:06
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 17.8601ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 969.0505ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 997.9967ms
+Request finished in 1020.8813ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 19.5286ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:07
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 25.6951ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 103.3004ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 164.6008ms
+Request finished in 171.9737ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 7.1738ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:07
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 29.0575ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 129.3794ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 178.4465ms
+Request starting HTTP/1.1 GET http://localhost:44318/js/lightbox-plus-jquery.min.js  
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/css/bootstrap.css  
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\site.css'
+Request starting HTTP/1.1 GET http://localhost:44318/css/lightbox.min.css  
+Request finished in 208.4719ms 200 text/html; charset=utf-8
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+Sending file. Request path: '/js/lightbox-plus-jquery.min.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\js\lightbox-plus-jquery.min.js'
+Request finished in 17.009ms 200 text/css
+Sending file. Request path: '/css/lightbox.min.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\lightbox.min.css'
+Request finished in 21.9003ms 200 text/css
+Request finished in 24.3793ms 200 application/javascript
+Request finished in 21.3851ms 200 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/lib/jquery/dist/jquery.js  
+Request starting HTTP/1.1 GET http://localhost:44318/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/js/bootstrap.js  
+Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\js\site.js'
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\bootstrap\dist\js\bootstrap.js'
+Request finished in 10.7018ms 200 application/javascript
+Request finished in 18.3887ms 200 application/javascript
+Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\jquery\dist\jquery.js'
+Request finished in 34.6491ms 200 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 5.4818ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:08
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 15.3413ms.
+Executing ViewResult, running view Index.
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 8.9505ms 304 text/css
+Executed ViewResult - view Index executed in 973.1584ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 1000.9761ms
+Request finished in 1018.7565ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 23.3195ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Request starting HTTP/1.1 DEBUG http://localhost:51436/  0
+Request finished in 220.566ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:08
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 3153.4479ms.
+Executing ViewResult, running view Index.
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+Executed ViewResult - view Index executed in 1218.7117ms.
+The file /css/site.css was not modified
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 5319.33ms
+Request finished in 169.8721ms 304 text/css
+Request finished in 6508.9165ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:22
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1169.9048ms.
+Executing ViewResult, running view Index.
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 52.7612ms 304 text/css
+Executed ViewResult - view Index executed in 581.1073ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 2088.9873ms
+Request finished in 2673.2024ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 23.1113ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:22
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 38.4139ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 3110.8056ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 3161.7278ms
+Request finished in 3184.6629ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 5.405ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:24
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 40.1994ms.
+Executing ViewResult, running view Index.
+Request starting HTTP/1.1 GET http://localhost:44318/js/lightbox-plus-jquery.min.js  
+Sending file. Request path: '/js/lightbox-plus-jquery.min.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\js\lightbox-plus-jquery.min.js'
+Request starting HTTP/1.1 GET http://localhost:44318/css/lightbox.min.css  
+Request finished in 13.8678ms 200 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/css/bootstrap.css  
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+Sending file. Request path: '/css/lightbox.min.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\lightbox.min.css'
+Request finished in 10.7353ms 200 text/css
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\site.css'
+Request finished in 10.2668ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+Request finished in 25.121ms 200 text/css
+Executed ViewResult - view Index executed in 813.5401ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 878.5365ms
+Request finished in 894.485ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/lib/jquery/dist/jquery.js  
+Request starting HTTP/1.1 GET http://localhost:44318/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Request starting HTTP/1.1 GET http://localhost:44318/lib/bootstrap/dist/js/bootstrap.js  
+Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\js\site.js'
+Request finished in 7.6507ms 200 application/javascript
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\bootstrap\dist\js\bootstrap.js'
+Request finished in 11.9451ms 200 application/javascript
+Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\lib\jquery\dist\jquery.js'
+Request finished in 21.2677ms 200 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 6.9067ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:24
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 18.7523ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 754.2293ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 783.0638ms
+Request finished in 798.2699ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 5.7839ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:24
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 17.4547ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 618.4295ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 642.826ms
+Request finished in 657.8599ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 5.2105ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:25
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 19.2352ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 663.363ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 694.1677ms
+Request finished in 705.7344ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 6.5358ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:25
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 15.7471ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 640.0336ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 664.8768ms
+Request finished in 677.5964ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 7.3847ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:26
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 19.8686ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 485.136ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 514.5211ms
+Request finished in 528.7123ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 8.7773ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 7.3117ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:26
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 24.369ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 517.8333ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 552.0577ms
+Request finished in 560.2841ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 8.7864ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:27
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 21.9266ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 736.471ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 768.919ms
+Request finished in 778.451ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 7.7282ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 43.4314ms
+Request finished in 340.6562ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:34
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1121.5637ms.
+Executing ViewResult, running view Index.
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+Executed ViewResult - view Index executed in 548.4579ms.
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\css\site.css'
+Request finished in 31.8636ms 200 text/css
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 1903.4037ms
+Request finished in 1972.2761ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 13.9532ms
+Request finished in 28.1961ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:34
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 46.2858ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 58.5596ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 253.373ms
+Request finished in 265.2532ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 9.9693ms
+Request finished in 19.9549ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:34
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 16.9934ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 53.6686ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 79.2197ms
+Request finished in 102.3714ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 12.4109ms
+Request finished in 24.5894ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:34
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 18.8142ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 39.5709ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 69.2265ms
+Request finished in 80.3464ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 8.623ms
+Request finished in 15.8683ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:34
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 22.4532ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 42.8333ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 75.6473ms
+Request finished in 83.5286ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 12.3486ms
+Request finished in 19.5631ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:34
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 28.8721ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 49.6508ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 85.0447ms
+Request finished in 92.6848ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 30.6055ms.
+Executing ViewResult, running view Index.
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 12.1852ms 304 text/css
+Executed ViewResult - view Index executed in 113.8822ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 161.5329ms
+Request finished in 186.8933ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 8.9768ms
+Request finished in 16.9995ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 24.8702ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 47.1642ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 82.7919ms
+Request finished in 92.3295ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 10.2664ms
+Request finished in 18.9111ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Index?ReturnUrl=%2FHome%2FCreate  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 23.7029ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 49.1549ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 85.476ms
+Request finished in 99.7914ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Login?name=Admin  
+Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Login (WebAppAdverts) - Validation state: Valid
+DataBase | Get Users | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (2ms) [Parameters=[@__name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Name]
+FROM [Users] AS [u]
+WHERE [u].[Name] = @__name_0
+AuthenticationScheme: Cookies signed in.
+Executed action method WebAppAdverts.Controllers.HomeController.Login (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 52.9048ms.
+Executing RedirectResult, redirecting to /.
+Executed action WebAppAdverts.Controllers.HomeController.Login (WebAppAdverts) in 64.5992ms
+Request finished in 87.5962ms 302 
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 18.8648ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 38.4268ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 64.204ms
+Request finished in 77.3298ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (4ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 45.6736ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 176.8818ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 233.7437ms
+Request finished in 246.5697ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/lib/jquery-validation/dist/jquery.validate.js  
+Request starting HTTP/1.1 GET http://localhost:44318/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js  
+The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js was not modified
+The file /lib/jquery-validation/dist/jquery.validate.js was not modified
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Request finished in 11.374ms 304 application/javascript
+Request finished in 13.4832ms 304 application/javascript
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (8ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 18.0463ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 7.0245ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 33.3344ms
+Request finished in 79.0602ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 12.5352ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 3.8415ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 23.9613ms
+Request finished in 32.9438ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 12.6598ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 2928.8811ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 2956.798ms
+Request finished in 2966.4876ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 9.8701ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:35
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (13ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 45.4164ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 4.0124ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 94.0504ms
+Request finished in 103.2795ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 16.4481ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:37
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (2ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 16.564ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 384.0318ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 414.3246ms
+Request finished in 424.3711ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 13.0729ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:37
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 31.2343ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 5.1786ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 62.5402ms
+Request finished in 70.1354ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 6.6057ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:38
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 7.257ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 4.21ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 20.5556ms
+Request finished in 29.6255ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:38
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 13.4562ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 360.6959ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 388.2636ms
+Request finished in 403.1174ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:38
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 11.6613ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 5.2846ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 29.849ms
+Request finished in 36.5334ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 6.2474ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:38
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 9.0877ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 376.459ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 395.6855ms
+Request finished in 412.0448ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:38
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 9.4354ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 7.2756ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 29.0381ms
+Request finished in 35.0154ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 12.1507ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:39
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (2ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 13.2381ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 7.3254ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 32.9275ms
+Request finished in 60.0988ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 20.6483ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:39
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (4ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 36.9947ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 8.4399ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 97.841ms
+Request finished in 133.3535ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 10.182ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:39
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 19.3542ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 9.8982ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 50.171ms
+Request finished in 64.4848ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:43
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 32.109ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 54.9115ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 147.9907ms
+Request finished in 164.3143ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 9.1763ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:43
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 34.5313ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 636.974ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 685.2475ms
+Request finished in 702.796ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:43
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (31ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 122.0497ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 14.6596ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 153.1048ms
+Request finished in 178.0632ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:43
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (3ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 26.0238ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 11.6419ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 48.4884ms
+Request finished in 63.7675ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:43
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (11ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 29.2197ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 19.3561ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 81.2754ms
+Request finished in 122.9221ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:43
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 11.4097ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 9.2579ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 41.5449ms
+Request finished in 51.3789ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:44
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 23.4803ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 129.5975ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 168.8044ms
+Request finished in 189.1895ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 3.4356ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:44
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 10.8173ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 549.8334ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 569.1617ms
+Request finished in 578.9502ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:44
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 23.5878ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 22.0542ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 65.2178ms
+Request finished in 78.0852ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:44
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (7ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 21.1229ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 430.5969ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 472.4576ms
+Request finished in 481.8071ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 10.1691ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:44
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 7.8885ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 421.7196ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 446.8969ms
+Request finished in 464.1575ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 11.051ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 7.1077ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:46
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 28.3542ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 549.8945ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 591.9528ms
+Request finished in 616.6463ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Настенька\source\repos\WebAppAdverts\WebAppAdverts\wwwroot\favicon.ico'
+Request finished in 8.6755ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=asd&contentSearch=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:46
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (8ms) [Parameters=[@__nameSearch_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE (CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')
+Executed DbCommand (2ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE (CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 113.6413ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 6.4173ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 134.7225ms
+Request finished in 159.6657ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/css/site.css  
+The file /css/site.css was not modified
+Request finished in 5.231ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=asd&contentSearch=as  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:46
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (1ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__contentSearch_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE ((CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')) AND ((CHARINDEX(@__contentSearch_1, [x].[Content]) > 0) OR (@__contentSearch_1 = N''))
+Executed DbCommand (1ms) [Parameters=[@__nameSearch_0='?' (Size = 4000), @__contentSearch_1='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE ((CHARINDEX(@__nameSearch_0, [x.User].[Name]) > 0) OR (@__nameSearch_0 = N'')) AND ((CHARINDEX(@__contentSearch_1, [x].[Content]) > 0) OR (@__contentSearch_1 = N''))
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 48.8806ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 4.4354ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 63.3484ms
+Request finished in 76.5725ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=&contentSearch=as  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:46
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+The Include operation for navigation '[x].User' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+Executed DbCommand (5ms) [Parameters=[@__contentSearch_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+WHERE (CHARINDEX(@__contentSearch_0, [x].[Content]) > 0) OR (@__contentSearch_0 = N'')
+Executed DbCommand (13ms) [Parameters=[@__contentSearch_0='?' (Size = 4000), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE (CHARINDEX(@__contentSearch_0, [x].[Content]) > 0) OR (@__contentSearch_0 = N'')
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 121.4782ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 75.634ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 205.9401ms
+Request finished in 230.0979ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=&contentSearch=hj  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:46
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (4ms) [Parameters=[@__contentSearch_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+WHERE (CHARINDEX(@__contentSearch_0, [x].[Content]) > 0) OR (@__contentSearch_0 = N'')
+Executed DbCommand (6ms) [Parameters=[@__contentSearch_0='?' (Size = 4000), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE (CHARINDEX(@__contentSearch_0, [x].[Content]) > 0) OR (@__contentSearch_0 = N'')
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 29.7878ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 35.607ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 83.2889ms
+Request finished in 99.0383ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/?nameSearch=&contentSearch=  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String, Int32, WebAppAdverts.Models.SortState) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Executing action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:46
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+ORDER BY [x].[DateTime] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed action method WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 25.406ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 46.497ms.
+Executed action WebAppAdverts.Controllers.HomeController.Index (WebAppAdverts) in 84.8593ms
+Request finished in 110.8432ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Edit?advertId=e8ecdd93-c0a3-4d2d-1d6b-08d6f2598e55  
+Route matched with {action = "Edit", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Edit(System.Guid) on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:47
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (5ms) [Parameters=[@__advertId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Content], [x].[DateTime], [x].[Image], [x].[Number], [x].[Rating], [x].[UserId], [x.User].[Id], [x.User].[Name]
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x].[Id] = @__advertId_0
+Executed action method WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 54.1151ms.
+Executing ViewResult, running view Edit.
+Executed ViewResult - view Edit executed in 20.1521ms.
+Executed action WebAppAdverts.Controllers.HomeController.Edit (WebAppAdverts) in 93.1913ms
+Request finished in 125.8756ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:47
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 21.2419ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 604.1555ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 645.2323ms
+Request finished in 655.9916ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:47
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 18.5482ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 15.6947ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 53.7024ms
+Request finished in 65.2683ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44318/Home/Create  
+Route matched with {action = "Create", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller WebAppAdverts.Controllers.HomeController (WebAppAdverts).
+Authorization was successful.
+Executing action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) - Validation state: Valid
+DataBase | Get Adverts | 19:47
+Entity Framework Core 2.1.11-servicing-32099 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[@__FindFirstValue_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Advertisements] AS [x]
+INNER JOIN [Users] AS [x.User] ON [x].[UserId] = [x.User].[Id]
+WHERE [x.User].[Name] = @__FindFirstValue_0
+Executed action method WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts), returned result Microsoft.AspNetCore.Mvc.ViewResult in 11.6111ms.
+Executing ViewResult, running view Create.
+Executed ViewResult - view Create executed in 4.3035ms.
+Executed action WebAppAdverts.Controllers.HomeController.Create (WebAppAdverts) in 36.0368ms
+Request finished in 50.2621ms 200 text/html; charset=utf-8

@@ -230,13 +230,6 @@ namespace WebAppAdverts.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public IActionResult ImageModal(Guid advertId)
-        {
-            var image = _operationDb.GetAdverts().FirstOrDefault(adv => adv.Id == advertId).Image;
-            return View(image);
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
