@@ -16,7 +16,9 @@
             </p>
             <p>
                 <label>Image</label>
-                <img class="img img-responsive" id="image" src="#" alt="" />
+                <a id="imageA" href="#" data-lightbox="image">
+                    <img id="image" class="img-thumbnail" src="#" alt="" />
+                </a>
                 <br>
                 @Html.ValidationMessage("Image", new { @class = "text-danger" })
                 <input name="Image" asp-for="Image" type="file" id="imgInput" class="form-control" />
