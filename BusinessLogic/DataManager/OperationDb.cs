@@ -3,6 +3,7 @@ using DataBase.Models;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLogic.DataManager
 {
@@ -39,8 +40,7 @@ namespace BusinessLogic.DataManager
 
         public void UpdateModel<T>(T model) where T : class, IEntity
         {
-            var m = _db.Set<T>().Find(model.Id);
-            m = model;
+            _db.Set<T>().Find(model.Id);
             _db.SaveChanges();
         }
     }

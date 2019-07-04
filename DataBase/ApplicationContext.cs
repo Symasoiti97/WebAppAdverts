@@ -7,10 +7,21 @@ namespace DataBase
     public class ApplicationContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Advert> Advertisements { get; set; }
+        public DbSet<Advert> Adverts { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Advert>()
+                .Property(adv => adv.DateTime)
+                .HasDefaultValueSql("GETDATE()");
+
+            modelBuilder.Entity<Advert>()
+                .Property(adv => adv.Rating)
+                .HasDefaultValue(0);
         }
     }
 

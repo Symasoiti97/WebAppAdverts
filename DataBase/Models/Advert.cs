@@ -9,6 +9,7 @@ namespace DataBase.Models
         [Key]
         public Guid Id { get; set; }
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Number { get; set; }
         [Required]
         public string Content { get; set; }

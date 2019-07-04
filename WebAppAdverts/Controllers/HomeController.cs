@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using WebAppAdverts.Models;
 
@@ -20,13 +21,13 @@ namespace WebAppAdverts.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IConcreteOperationDb _operationDb;
+        private readonly IOperationDb _operationDb;
         private readonly IReCaptchaService _reCaptcha;
         private readonly IConverterService<byte[], IFormFile> _convertImageToBytes;
         private readonly int _countAdvertsByAuftor;
         private readonly int _countAdvertsByPage;
 
-        public HomeController(IConcreteOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options
+        public HomeController(IOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options
             ,IConverterService<byte[], IFormFile> convertImageToBytes)
         {
             _operationDb = operationDb;
@@ -39,7 +40,7 @@ namespace WebAppAdverts.Controllers
         [HttpGet]
         public IActionResult Index(string nameSearch = "", string contentSearch = "", int currentPage = 1, SortState sortOrder = SortState.DateDesc)
         {
-            IQueryable<Advert> adverts = _operationDb.GetAdverts();
+            IQueryable<Advert> adverts = _operationDb.GetModels<Advert>().Include(u => u.User);
 
             if (!String.IsNullOrEmpty(nameSearch))
             {
@@ -90,23 +91,24 @@ namespace WebAppAdverts.Controllers
         [HttpGet]
         public async Task<IActionResult> Login(string name)
         {
-            User user = _operationDb.GetUsers().FirstOrDefault(u => u.Name == name);
+            var user = _operationDb.GetModels<User>().FirstOrDefault(u => u.Name == name);
 
-            if (user != null)
+            if (user == null)
             {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, name)
-                };
-
-                ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
-
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
 
-            return RedirectToAction("Index");
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimsIdentity.DefaultNameClaimType, name)
+            };
+
+            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+
+            return RedirectToAction(nameof(Index));
+
         }
 
         [HttpGet]
@@ -114,21 +116,22 @@ namespace WebAppAdverts.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
         [Authorize]
         public IActionResult Create()
         {
-            var countAdverts = _operationDb.GetAdverts().Where(u => u.User.Name == User.FindFirstValue(ClaimTypes.Name)).Count();
+            var countAdverts = _operationDb.GetModels<Advert>(u => u.User.Name == User.FindFirstValue(ClaimTypes.Name)).Include(u => u.User).Count();
+
             if (countAdverts < _countAdvertsByAuftor)
             {
                 return View();
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
         }
 
@@ -153,29 +156,26 @@ namespace WebAppAdverts.Controllers
                 }
             }
 
-            var userId = _operationDb.GetUsers().FirstOrDefault(u => u.Name == User.FindFirstValue(ClaimTypes.Name)).Id;
+            var userId = _operationDb.GetModels<User>()
+                .FirstOrDefault(u => u.Name == User.FindFirstValue(ClaimTypes.Name)).Id;
 
             Advert advert = new Advert
             {
                 Content = createVM.Content,
-                DateTime = DateTime.Now,
-                Rating = 0,
-                Number = 0,
+                Image = _convertImageToBytes.Convert(createVM.Image),
                 UserId = userId
             };
 
-            advert.Image = _convertImageToBytes.Convert(createVM.Image);
+            _operationDb.CreateModel(advert);
 
-            _operationDb.AddAdvert(advert);
-
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
         [Authorize]
         public IActionResult Edit(Guid advertId)
         {
-            var editAdvert = _operationDb.GetAdverts().Where(adv => adv.Id == advertId).FirstOrDefault();
+            var editAdvert = _operationDb.GetModels<Advert>().Include(u => u.User).FirstOrDefault(adv => adv.Id == advertId);
 
             EditViewModel advertVM = new EditViewModel
             {
@@ -196,7 +196,7 @@ namespace WebAppAdverts.Controllers
                 return View(editVM);
             }
 
-            Advert advert = _operationDb.GetAdverts().FirstOrDefault(adv => adv.Id == editVM.AdvertId);
+            Advert advert = _operationDb.GetModels<Advert>().Include(u => u.User).FirstOrDefault(adv => adv.Id == editVM.AdvertId);
             advert.Content = editVM.Content;
             advert.DateTime = DateTime.Now;
 
@@ -205,9 +205,9 @@ namespace WebAppAdverts.Controllers
                 advert.Image = _convertImageToBytes.Convert(editVM.Image);
             }
 
-            _operationDb.UpdateAdvert(advert);
+            _operationDb.UpdateModel(advert);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
@@ -217,17 +217,17 @@ namespace WebAppAdverts.Controllers
             return View(advertId);
         }
 
-        [HttpPost, ActionName("DeleteModal")]
+        [HttpPost, ActionName(nameof(DeleteModal))]
         public IActionResult DeleteConfirmed(Guid advertId)
         {
-            var advertDelete = _operationDb.GetAdverts().FirstOrDefault(adv => adv.Id == advertId);
+            var advertDelete = _operationDb.GetModels<Advert>().FirstOrDefault(adv => adv.Id == advertId);
 
             if (advertDelete != null)
             {
-                _operationDb.DeleteAdvert(advertDelete);
+                _operationDb.RemoveModel(advertDelete);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

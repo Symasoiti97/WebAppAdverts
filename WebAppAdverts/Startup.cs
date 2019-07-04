@@ -39,12 +39,11 @@ namespace WebAppAdverts
 
             services.AddSingleton<IReCaptchaService, GoogleReCaptchaService>();
 
-            string conntetion = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(conntetion));
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped(typeof(ApplicationContext));
             services.AddScoped(typeof(IOperationDb), typeof(OperationDb));
-            services.AddScoped(typeof(IConcreteOperationDb), typeof(ConcreteOperationDb));
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
@@ -55,7 +54,6 @@ namespace WebAppAdverts
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
