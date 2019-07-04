@@ -3,6 +3,7 @@ using BusinessLogic.Options;
 using BusinessLogic.Services;
 using DataBase;
 using Logger;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -45,6 +46,12 @@ namespace WebAppAdverts
             services.AddScoped(typeof(IOperationDb), typeof(OperationDb));
             services.AddScoped(typeof(IConcreteOperationDb), typeof(ConcreteOperationDb));
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new PathString("/Home/Index");
+                });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -66,6 +73,7 @@ namespace WebAppAdverts
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

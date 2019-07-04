@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebAppAdverts</title>
 
+    <link rel="stylesheet" type="text/css" href="~/css/lightbox.min.css">
+    <script src="~/js/lightbox-plus-jquery.min.js"></script>
+
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -27,12 +30,28 @@
             <div class="navbar-header">
                 <a href="#" class="navbar-brand">Home</a>
             </div>
-            <div>
+            <div class="navbar-nav">
                 <ul class="nav navbar-nav">
                     <li class="active"><a asp-action="Index">Main</a></li>
                     <li class="active"><a asp-action="Create">Add advert</a></li>
                     <li class="active"><a href="#">About</a></li>
                 </ul>
+            </div>
+            <div class="navbar-right">
+                <br>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <Label>Your name: @User.FindFirst(u => u.Type == ClaimTypes.Name).Value</Label>
+                    <a class="text-primary" asp-controller="Home" asp-action="Logout">LogOut</a>
+                }
+                else
+                {
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Get))
+                    {
+                        <input class="form-inline" type="text" name="name" placeholder="Your name" />
+                        <input class="btn btn-xs btn-success" type="submit" value="LogIn" />
+                    }
+                }
             </div>
         </div>
     </nav>
@@ -76,6 +95,7 @@
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#image').attr('src', e.target.result);
+                    $('#imageA').attr('href', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
             }
@@ -84,5 +104,6 @@
             readURL(this);
         });
     </script>
+    }
 </body>
 </html>

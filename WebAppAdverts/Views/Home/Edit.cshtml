@@ -16,7 +16,9 @@
             </p>
             <p>
                 <label>Image</label>
-                <img class="img img-responsive" id="image" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.ImageByte))" alt="" />
+                <a id="imageA" href="data:image/jpeg;base64,@(Convert.ToBase64String(Model.ImageByte))" data-lightbox="image">
+                    <img id="image" class="img-thumbnail" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.ImageByte))" alt="" />
+                </a>
                 <br>
                 <input type="hidden" name="ImageByte" asp-for="ImageByte" />
                 <input name="Image" asp-for="Image" type="file" id="imgInput" class="form-control" />
