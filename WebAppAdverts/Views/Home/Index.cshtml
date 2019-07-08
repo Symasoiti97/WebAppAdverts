@@ -26,24 +26,32 @@
                asp-action="Index"
                asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
                asp-route-name="@(Model.FilterViewModel.Name)"
-               asp-route-content="@(Model.FilterViewModel.Content)">
+               asp-route-contentSearch="@(Model.FilterViewModel.Content)">
                 NameSort
             </a>
             <br>
             <a class="btn btn-primary"
                asp-action="Index"
                asp-route-sortOrder="@(Model.SortViewModel.RatingSort)"
-               asp-route-name="@(Model.FilterViewModel.Name)"
-               asp-route-content="@(Model.FilterViewModel.Content)">
+               asp-route-nameSearch="@(Model.FilterViewModel.Name)"
+               asp-route-contentSearch="@(Model.FilterViewModel.Content)">
                 RatingSort
             </a>
             <br>
             <a class="btn btn-primary"
                asp-action="Index"
                asp-route-sortOrder="@(Model.SortViewModel.DateSort)"
-               asp-route-name="@(Model.FilterViewModel.Name)"
-               asp-route-content="@(Model.FilterViewModel.Content)">
+               asp-route-nameSearch="@(Model.FilterViewModel.Name)"
+               asp-route-contentSearch="@(Model.FilterViewModel.Content)">
                 DateSort
+            </a>
+            <br>
+            <a class="btn btn-primary"
+               asp-action="Index"
+               asp-route-sortOrder="@(Model.SortViewModel.NumberSort)"
+               asp-route-nameSearch="@(Model.FilterViewModel.Name)"
+               asp-route-contentSearch="@(Model.FilterViewModel.Content)">
+                NumberSort
             </a>
         </div>
     </div>
@@ -63,7 +71,7 @@
                                 <a class="text-primary" asp-controller="Home" asp-action="Edit" asp-route-advertId="@advert.Id">Edit</a>
                             </label>
                             <label class="btn btn-default btn-xs">
-                                <a class="text-danger" id="deleteAdvert" asp-controller="Home" asp-action="DeleteModal" asp-route-advertId="@advert.Id">Delete</a>
+                                <a class="text-danger deleteAdvert" asp-controller="Home" asp-action="DeleteModal" asp-route-advertId="@advert.Id">Delete</a>
                             </label>
                         </div>
                     </form>
@@ -93,7 +101,7 @@
         @if (Model.PageViewModel.HasPreviousPage)
         {
             <a asp-action="Index"
-               asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+               asp-route-currentPage="@(Model.PageViewModel.PageNumber - 1)"
                asp-route-name="@(Model.FilterViewModel.Name)"
                asp-route-company="@(Model.FilterViewModel.Content)"
                asp-route-sortorder="@(Model.SortViewModel.CurrentSort)"
@@ -105,7 +113,7 @@
         @if (Model.PageViewModel.HasNextPage)
         {
             <a asp-action="Index"
-               asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+               asp-route-currentPage="@(Model.PageViewModel.PageNumber + 1)"
                asp-route-name="@(Model.FilterViewModel.Name)"
                asp-route-company="@(Model.FilterViewModel.Content)"
                asp-route-sortorder="@(Model.SortViewModel.CurrentSort)"
@@ -122,7 +130,7 @@
     <script type="text/javascript">
         $(function () {
             $.ajaxSetup({ cache: false });
-            $("#deleteAdvert").click(function (e) {
+            $(".deleteAdvert").click(function (e) {
                 e.preventDefault();
                 $.get(this.href, function (data) {
                     $('#dialogContent').html(data);

@@ -1,23 +1,27 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
 {
     public class ConvertImageToBytes : IConverterService<byte[], IFormFile>
     {
-        public byte[] Convert(IFormFile image)
+        public async Task<byte[]> ConvertAsync(IFormFile image)
         {
-            byte[] imageData = null;
-
-            if (image != null)
+            return await Task.Run(function: () =>
             {
-                using (BinaryReader binaryReader = new BinaryReader(image.OpenReadStream()))
-                {
-                    imageData = binaryReader.ReadBytes((int)image.Length);
-                }
-            }
+                byte[] imageData = null;
 
-            return imageData;
+                if (image != null)
+                {
+                    using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)image.Length);
+                    }
+                }
+
+                return imageData;
+            });
         }
     }
 }

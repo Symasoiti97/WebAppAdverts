@@ -7,6 +7,8 @@
         RatingAsc,
         RatingDesc,
         DateAsc,
-        DateDesc
+        DateDesc,
+        NumberAsc,
+        NumberDesc
     }
 }

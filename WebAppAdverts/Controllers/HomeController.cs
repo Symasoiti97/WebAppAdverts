@@ -38,7 +38,7 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string nameSearch = "", string contentSearch = "", int currentPage = 1, SortState sortOrder = SortState.DateDesc)
+        public async Task<IActionResult> Index(string nameSearch = "", string contentSearch = "", int currentPage = 1, SortState sortOrder = SortState.DateDesc)
         {
             IQueryable<Advert> adverts = _operationDb.GetModels<Advert>().Include(u => u.User);
 
@@ -72,12 +72,18 @@ namespace WebAppAdverts.Controllers
                 case SortState.DateAsc:
                     adverts = adverts.OrderBy(sort => sort.DateTime);
                     break;
+                case SortState.NumberDesc:
+                    adverts = adverts.OrderByDescending(sort => sort.Number);
+                    break;
+                case SortState.NumberAsc:
+                    adverts = adverts.OrderBy(sort => sort.Number);
+                    break;
             }
 
-            var count = adverts.Count();
-            var items = adverts.Skip((currentPage - 1) * _countAdvertsByPage).Take(_countAdvertsByPage).ToList();
+            var count = await adverts.CountAsync();
+            var items = await adverts.Skip((currentPage - 1) * _countAdvertsByPage).Take(_countAdvertsByPage).ToListAsync();
 
-            IndexViewModel indexVM = new IndexViewModel
+            var indexVM = new IndexViewModel
             {
                 PageViewModel = new PageViewModel(count, currentPage, _countAdvertsByPage),
                 SortViewModel = new SortViewModel(sortOrder),
@@ -91,7 +97,7 @@ namespace WebAppAdverts.Controllers
         [HttpGet]
         public async Task<IActionResult> Login(string name)
         {
-            var user = _operationDb.GetModels<User>().FirstOrDefault(u => u.Name == name);
+            var user = await _operationDb.GetModels<User>().FirstOrDefaultAsync(u => u.Name == name);
 
             if (user == null)
             {
@@ -100,10 +106,11 @@ namespace WebAppAdverts.Controllers
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, name)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Name),
+                new Claim("UserId", user.Id.ToString())
             };
 
-            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+            var id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
 
@@ -121,9 +128,9 @@ namespace WebAppAdverts.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            var countAdverts = _operationDb.GetModels<Advert>(u => u.User.Name == User.FindFirstValue(ClaimTypes.Name)).Include(u => u.User).Count();
+            var countAdverts = await _operationDb.GetModels<Advert>(u => u.User.Id == new Guid(User.FindFirstValue("UserId"))).CountAsync();
 
             if (countAdverts < _countAdvertsByAuftor)
             {
@@ -156,14 +163,11 @@ namespace WebAppAdverts.Controllers
                 }
             }
 
-            var userId = _operationDb.GetModels<User>()
-                .FirstOrDefault(u => u.Name == User.FindFirstValue(ClaimTypes.Name)).Id;
-
-            Advert advert = new Advert
+            var advert = new Advert
             {
                 Content = createVM.Content,
-                Image = _convertImageToBytes.Convert(createVM.Image),
-                UserId = userId
+                Image = await _convertImageToBytes.ConvertAsync(createVM.Image),
+                UserId = new Guid(User.FindFirstValue("UserId"))
             };
 
             _operationDb.CreateModel(advert);
@@ -173,11 +177,11 @@ namespace WebAppAdverts.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult Edit(Guid advertId)
+        public async Task<IActionResult> Edit(Guid advertId)
         {
-            var editAdvert = _operationDb.GetModels<Advert>().Include(u => u.User).FirstOrDefault(adv => adv.Id == advertId);
+            var editAdvert = await _operationDb.GetModels<Advert>().FirstOrDefaultAsync(adv => adv.Id == advertId);
 
-            EditViewModel advertVM = new EditViewModel
+            var advertVM = new EditViewModel
             {
                 AdvertId = editAdvert.Id,
                 Content = editAdvert.Content,
@@ -189,20 +193,20 @@ namespace WebAppAdverts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(EditViewModel editVM)
+        public async Task<IActionResult> Edit(EditViewModel editVM)
         {
             if (!ModelState.IsValid)
             {
                 return View(editVM);
             }
 
-            Advert advert = _operationDb.GetModels<Advert>().Include(u => u.User).FirstOrDefault(adv => adv.Id == editVM.AdvertId);
+            var advert = await _operationDb.GetModels<Advert>().FirstOrDefaultAsync(adv => adv.Id == editVM.AdvertId);
             advert.Content = editVM.Content;
             advert.DateTime = DateTime.Now;
 
             if (editVM.Image != null)
             {
-                advert.Image = _convertImageToBytes.Convert(editVM.Image);
+                advert.Image = await _convertImageToBytes.ConvertAsync(editVM.Image);
             }
 
             _operationDb.UpdateModel(advert);
@@ -218,9 +222,9 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpPost, ActionName(nameof(DeleteModal))]
-        public IActionResult DeleteConfirmed(Guid advertId)
+        public async Task<IActionResult> DeleteConfirmed(Guid advertId)
         {
-            var advertDelete = _operationDb.GetModels<Advert>().FirstOrDefault(adv => adv.Id == advertId);
+            var advertDelete = await _operationDb.GetModels<Advert>().FirstOrDefaultAsync(adv => adv.Id == advertId);
 
             if (advertDelete != null)
             {
