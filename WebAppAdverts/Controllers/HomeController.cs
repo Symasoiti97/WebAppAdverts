@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLogic.DataManager;
+using BusinessLogic.Filters;
 using BusinessLogic.Options;
 using BusinessLogic.Services;
 using DataBase.Models;
@@ -24,7 +25,6 @@ namespace WebAppAdverts.Controllers
         private readonly IOperationDb _operationDb;
         private readonly IReCaptchaService _reCaptcha;
         private readonly IConverterService<byte[], IFormFile> _convertImageToBytes;
-        private readonly int _countAdvertsByAuftor;
         private readonly int _countAdvertsByPage;
 
         public HomeController(IOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options
@@ -33,7 +33,6 @@ namespace WebAppAdverts.Controllers
             _operationDb = operationDb;
             _reCaptcha = reCaptcha;
             _countAdvertsByPage = options.Value.IndexOptions.CountAdvertsByPage;
-            _countAdvertsByAuftor = options.Value.IndexOptions.CountAdvertsByAuftor;
             _convertImageToBytes = convertImageToBytes;
         }
 
@@ -128,18 +127,10 @@ namespace WebAppAdverts.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Create()
+        [TypeFilter(typeof(AdvertCountByAuthorFilter))]
+        public IActionResult Create()
         {
-            var countAdverts = await _operationDb.GetModels<Advert>(u => u.User.Id == new Guid(User.FindFirstValue("UserId"))).CountAsync();
-
-            if (countAdverts < _countAdvertsByAuftor)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction(nameof(Index));
-            }
+            return View();
         }
 
         [HttpPost]

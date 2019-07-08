@@ -144,7 +144,7 @@ namespace WebAppAdverts.Tests
             {
                 IndexOptions = new IndexOptions
                 {
-                    CountAdvertsByAuftor = 10,
+                    CountAdvertsByAuthor = 10,
                     CountAdvertsByPage = 10
                 },
                 ReCaptcha = new ReCaptchaOptions
