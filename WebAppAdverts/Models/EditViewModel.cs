@@ -9,7 +9,7 @@ namespace WebAppAdverts.Models
         public Guid AdvertId { get; set; }
         [Required]
         public string Content { get; set; }
-        public byte[] ImageByte { get; set; }
+        public string ImageUrl { get; set; }
         public IFormFile Image { get; set; }
     }
 }

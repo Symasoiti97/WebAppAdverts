@@ -32,8 +32,8 @@
             </div>
             <div class="navbar-nav">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a asp-action="Index">Main</a></li>
-                    <li class="active"><a asp-action="Create">Add advert</a></li>
+                    <li class="active"><a asp-controller="Home" asp-action="Index">Main</a></li>
+                    <li class="active"><a asp-controller="Home" asp-action="Create">Add advert</a></li>
                     <li class="active"><a href="#">About</a></li>
                 </ul>
             </div>
@@ -46,7 +46,7 @@
                 }
                 else
                 {
-                    @using (Html.BeginForm("Login", "Home", FormMethod.Get))
+                    using (Html.BeginForm("Login", "Home", FormMethod.Get))
                     {
                         <input class="form-inline" type="text" name="name" placeholder="Your name" />
                         <input class="btn btn-xs btn-success" type="submit" value="LogIn" />

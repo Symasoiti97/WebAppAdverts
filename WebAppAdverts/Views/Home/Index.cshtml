@@ -25,7 +25,7 @@
             <a class="btn btn-primary"
                asp-action="Index"
                asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
-               asp-route-name="@(Model.FilterViewModel.Name)"
+               asp-route-nameSearch="@(Model.FilterViewModel.Name)"
                asp-route-contentSearch="@(Model.FilterViewModel.Content)">
                 NameSort
             </a>
@@ -80,8 +80,8 @@
                     <div class="col-md-2">
                         @if (advert.Image != null)
                         {
-                            <a href="data:image/jpeg;base64,@(Convert.ToBase64String(advert.Image))" data-lightbox="@advert.Id">
-                                <img class="img-thumbnail" src="data:image/jpeg;base64,@(Convert.ToBase64String(advert.Image))" />
+                            <a href="@Url.Content(advert.Image)" data-lightbox="@advert.Id">
+                                <img class="img-thumbnail" src="@Url.Content(advert.Image)" />
                             </a>
                         }
                     </div>

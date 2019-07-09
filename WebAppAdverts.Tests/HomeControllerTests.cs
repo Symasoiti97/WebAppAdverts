@@ -1,5 +1,4 @@
-﻿using BusinessLogic.DataManager;
-using BusinessLogic.Options;
+﻿using BusinessLogic.Options;
 using BusinessLogic.Services;
 using DataBase.Models;
 using Microsoft.AspNetCore.Http;

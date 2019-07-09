@@ -14,7 +14,7 @@ namespace DataBase.Models
         [Required]
         public string Content { get; set; }
         [Required]
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         [Required]
         public int Rating { get; set; }
         [Required]

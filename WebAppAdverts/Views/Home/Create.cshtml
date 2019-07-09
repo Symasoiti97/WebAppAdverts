@@ -21,7 +21,7 @@
                 </a>
                 <br>
                 @Html.ValidationMessage("Image", new { @class = "text-danger" })
-                <input name="Image" asp-for="Image" type="file" id="imgInput" class="form-control" />
+                <input name="Image" asp-for="Image" type="file" accept="image/*" id="imgInput" class="form-control" />
             </p>
             <p>
                 <div class="g-recaptcha" data-sitekey="@AppOptions.Value.ReCaptcha.SiteKey"></div>

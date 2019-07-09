@@ -12,7 +12,6 @@ using DataBase.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -24,16 +23,16 @@ namespace WebAppAdverts.Controllers
     {
         private readonly IOperationDb _operationDb;
         private readonly IReCaptchaService _reCaptcha;
-        private readonly IConverterService<byte[], IFormFile> _convertImageToBytes;
+        private readonly IWriteImageService _writeImageService;
         private readonly int _countAdvertsByPage;
 
         public HomeController(IOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options
-            ,IConverterService<byte[], IFormFile> convertImageToBytes)
+            , IWriteImageService writeImageService)
         {
             _operationDb = operationDb;
             _reCaptcha = reCaptcha;
             _countAdvertsByPage = options.Value.IndexOptions.CountAdvertsByPage;
-            _convertImageToBytes = convertImageToBytes;
+            _writeImageService = writeImageService;
         }
 
         [HttpGet]
@@ -154,10 +153,12 @@ namespace WebAppAdverts.Controllers
                 }
             }
 
+            var urlImage = await _writeImageService.WriteImageAndGetPathAsync(createVM.Image);
+            
             var advert = new Advert
             {
                 Content = createVM.Content,
-                Image = await _convertImageToBytes.ConvertAsync(createVM.Image),
+                Image = urlImage,
                 UserId = new Guid(User.FindFirstValue("UserId"))
             };
 
@@ -176,7 +177,7 @@ namespace WebAppAdverts.Controllers
             {
                 AdvertId = editAdvert.Id,
                 Content = editAdvert.Content,
-                ImageByte = editAdvert.Image
+                ImageUrl = editAdvert.Image
             };
 
             return View(advertVM);
@@ -194,10 +195,14 @@ namespace WebAppAdverts.Controllers
             var advert = await _operationDb.GetModels<Advert>().FirstOrDefaultAsync(adv => adv.Id == editVM.AdvertId);
             advert.Content = editVM.Content;
             advert.DateTime = DateTime.Now;
+            
+            
 
             if (editVM.Image != null)
             {
-                advert.Image = await _convertImageToBytes.ConvertAsync(editVM.Image);
+                var urlImage = await _writeImageService.WriteImageAndGetPathAsync(editVM.Image);
+
+                advert.Image = urlImage;
             }
 
             _operationDb.UpdateModel(advert);

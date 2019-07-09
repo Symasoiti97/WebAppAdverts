@@ -16,12 +16,12 @@
             </p>
             <p>
                 <label>Image</label>
-                <a id="imageA" href="data:image/jpeg;base64,@(Convert.ToBase64String(Model.ImageByte))" data-lightbox="image">
-                    <img id="image" class="img-thumbnail" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.ImageByte))" alt="" />
+                <a id="imageA" href="@Url.Content(Model.ImageUrl)" data-lightbox="image">
+                    <img id="image" class="img-thumbnail" src="@Url.Content(Model.ImageUrl)" alt="" />
                 </a>
                 <br>
-                <input type="hidden" name="ImageByte" asp-for="ImageByte" />
-                <input name="Image" asp-for="Image" type="file" id="imgInput" class="form-control" />
+                <input type="hidden" name="ImageByte" asp-for="ImageUrl" />
+                <input name="Image" asp-for="Image" type="file" accept="image/*" id="imgInput" class="form-control" />
             </p>
             <p>
                 <input type="submit" value="Edit" />
