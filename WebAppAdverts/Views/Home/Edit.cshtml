@@ -16,8 +16,8 @@
             </p>
             <p>
                 <label>Image</label>
-                <a id="imageA" href="@Url.Content(Model.ImageUrl)" data-lightbox="image">
-                    <img id="image" class="img-thumbnail" src="@Url.Content(Model.ImageUrl)" alt="" />
+                <a id="imageA" href="@Url.Action("Img", "Home", new {image = Model.ImageUrl})" data-lightbox="image">
+                    <img id="image" class="img-thumbnail" src="@Url.Action("Img", "Home", new {image = Model.ImageUrl})" alt="" />
                 </a>
                 <br>
                 <input type="hidden" name="ImageByte" asp-for="ImageUrl" />

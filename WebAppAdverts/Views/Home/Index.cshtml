@@ -80,8 +80,8 @@
                     <div class="col-md-2">
                         @if (advert.Image != null)
                         {
-                            <a href="@Url.Content(advert.Image)" data-lightbox="@advert.Id">
-                                <img class="img-thumbnail" src="@Url.Content(advert.Image)" />
+                            <a href="@Url.Action("Img", "Home", new {image = advert.Image})" data-lightbox="@advert.Id">
+                                <img class="img-thumbnail" src="@Url.Action("Img", "Home", new {image = advert.Image})" alt=""/>
                             </a>
                         }
                     </div>

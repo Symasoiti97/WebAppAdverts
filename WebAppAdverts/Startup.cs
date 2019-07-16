@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IO;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Options;
 
 namespace WebAppAdverts
 {
@@ -55,7 +57,7 @@ namespace WebAppAdverts
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<AppOptions> options)
         {
             loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
 
@@ -73,6 +75,12 @@ namespace WebAppAdverts
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
+
+//            app.UseStaticFiles(new StaticFileOptions
+//            {
+//                FileProvider = new PhysicalFileProvider(options.Value.ImagesPath.Path),
+//                RequestPath = "/images"
+//            });
 
             app.UseMvc(routes =>
             {

@@ -1,5 +1,4 @@
-﻿@inject IOptions<AppOptions> AppOptions
-@model CreateViewModel
+﻿@model CreateViewModel
 @{
     ViewBag.Title = "Adding Advert";
 }
@@ -17,7 +16,7 @@
             <p>
                 <label>Image</label>
                 <a id="imageA" href="#" data-lightbox="image">
-                    <img id="image" class="img-thumbnail" src="#" alt="" />
+                    <img id="image" class="img-thumbnail" src="#" alt="" width="100" height="60"/>
                 </a>
                 <br>
                 @Html.ValidationMessage("Image", new { @class = "text-danger" })
