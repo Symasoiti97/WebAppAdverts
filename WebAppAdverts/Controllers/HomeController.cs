@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Net.Mime;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLogic.DataManager;
@@ -15,13 +13,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
 using WebAppAdverts.Models;
 
 namespace WebAppAdverts.Controllers
@@ -30,18 +23,16 @@ namespace WebAppAdverts.Controllers
     {
         private readonly IOperationDb _operationDb;
         private readonly IReCaptchaService _reCaptcha;
-        private readonly IWriteImageService _writeImageService;
+        private readonly IImageService _imageService;
         private readonly int _countAdvertsByPage;
-        private readonly string _imagesPath;
 
         public HomeController(IOperationDb operationDb, IReCaptchaService reCaptcha, IOptions<AppOptions> options
-            , IWriteImageService writeImageService)
+            , IImageService imageService)
         {
             _operationDb = operationDb;
             _reCaptcha = reCaptcha;
             _countAdvertsByPage = options.Value.IndexOptions.CountAdvertsByPage;
-            _writeImageService = writeImageService;
-            _imagesPath = options.Value.ImagesPath.Path;
+            _imageService = imageService;
         }
 
         [HttpGet]
@@ -162,7 +153,7 @@ namespace WebAppAdverts.Controllers
                 }
             }
 
-            var urlImage = await _writeImageService.WriteImageAndGetPathAsync(createVM.Image);
+            var urlImage = await _imageService.WriteImageAndGetPathAsync(createVM.Image);
             
             var advert = new Advert
             {
@@ -209,7 +200,7 @@ namespace WebAppAdverts.Controllers
 
             if (editVM.Image != null)
             {
-                var urlImage = await _writeImageService.WriteImageAndGetPathAsync(editVM.Image);
+                var urlImage = await _imageService.WriteImageAndGetPathAsync(editVM.Image);
 
                 advert.Image = urlImage;
             }
@@ -239,36 +230,6 @@ namespace WebAppAdverts.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpGet]
-        [Route("/images/{image}")]
-        public IActionResult Img(string image, int width, int height)
-        {
-            var imagePath = _imagesPath + image;
-            
-            using (var img = Image.Load(imagePath))
-            {
-                if (width <= 0)
-                {
-                    width = img.Width;
-                }
-
-                if (height <= 0)
-                {
-                    height = img.Height;
-                }
-                
-                var newImagePath = imagePath.Replace(".", $"_{width}_{height}.");
-
-                img.Mutate(x => x
-                    .Resize(width, height));
-                
-                img.Save(newImagePath);
-                var im = System.IO.File.OpenRead(newImagePath);
-            
-                return File(im, "image/jpeg");
-            }
-        }
-        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

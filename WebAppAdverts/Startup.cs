@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IO;
-using Microsoft.Extensions.FileProviders;
+using BusinessLogic.Middlewares;
 using Microsoft.Extensions.Options;
 
 namespace WebAppAdverts
@@ -37,7 +37,7 @@ namespace WebAppAdverts
 
             services.Configure<AppOptions>(Configuration);
 
-            services.AddTransient<IWriteImageService, WriteImageService>();
+            services.AddTransient<IImageService, ImageService>();
 
             services.AddSingleton<IReCaptchaService, GoogleReCaptchaService>();
 
@@ -75,13 +75,14 @@ namespace WebAppAdverts
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
-
+            app.UseMiddleware<ResizeImageMiddleware>();
+            
 //            app.UseStaticFiles(new StaticFileOptions
 //            {
-//                FileProvider = new PhysicalFileProvider(options.Value.ImagesPath.Path),
+//                FileProvider = new PhysicalFileProvider(options.Value.ImagesPath.Path + "/images"),
 //                RequestPath = "/images"
 //            });
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
