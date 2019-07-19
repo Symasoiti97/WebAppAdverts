@@ -30,17 +30,5 @@ namespace BusinessLogic.DataManager
         {
             return _db.Set<T>().Where(predicate);
         }
-
-        public void RemoveModel<T>(T model) where T : class, IEntity
-        {
-            _db.Set<T>().Remove(model);
-            _db.SaveChanges();
-        }
-
-        public void UpdateModel<T>(T model) where T : class, IEntity
-        {
-            _db.Set<T>().Find(model.Id);
-            _db.SaveChanges();
-        }
     }
 }

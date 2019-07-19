@@ -61,20 +61,22 @@
         {
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <form method="get">
-                        <label>Number: @advert.Number</label>
-                        <label>Date added: @advert.DateTime.ToLongDateString()</label>
-                        <label>Author: @advert.User.Name</label>
-                        <label>Rating: @advert.Rating</label>
-                        <div class="navbar-right">
-                            <label class="btn btn-default btn-xs">
-                                <a class="text-primary" asp-controller="Home" asp-action="Edit" asp-route-advertId="@advert.Id">Edit</a>
-                            </label>
-                            <label class="btn btn-default btn-xs">
-                                <a class="text-danger deleteAdvert" asp-controller="Home" asp-action="DeleteModal" asp-route-advertId="@advert.Id">Delete</a>
-                            </label>
-                        </div>
-                    </form>
+                    <input id="advertId" type="hidden" value="@advert.Id"/>
+                    <label>Number: @advert.Number</label>
+                    <label>Date added: @advert.DateTime.ToLongDateString()</label>
+                    <label>Author: @advert.User.Name</label>
+                    <label>Rating:</label>
+                    <a class="btn btn-xs text-primary upRating">+</a>
+                    <label id="Rating">@advert.Rating</label>
+                    <a class="btn btn-xs text-danger downRating">-</a>
+                    <div class="navbar-right">
+                        <label class="btn btn-default btn-xs">
+                            <a class="text-primary" asp-controller="Home" asp-action="Edit" asp-route-advertId="@advert.Id">Edit</a>
+                        </label>
+                        <label class="btn btn-default btn-xs">
+                            <a class="text-danger deleteAdvert" asp-controller="Home" asp-action="DeleteModal" asp-route-advertId="@advert.Id">Delete</a>
+                        </label>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <div class="col-md-2">
@@ -107,7 +109,7 @@
                asp-route-sortorder="@(Model.SortViewModel.CurrentSort)"
                class="btn btn-default">
                 <i class="glyphicon glyphicon-chevron-left"></i>
-                Назад
+                Back
             </a>
         }
         @if (Model.PageViewModel.HasNextPage)
@@ -118,7 +120,7 @@
                asp-route-company="@(Model.FilterViewModel.Content)"
                asp-route-sortorder="@(Model.SortViewModel.CurrentSort)"
                class="btn btn-default">
-                Вперед
+                Next
                 <i class="glyphicon glyphicon-chevron-right"></i>
             </a>
         }
@@ -126,17 +128,54 @@
 </div>
 
 @section Scripts
-    {
+{
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             $.ajaxSetup({ cache: false });
-            $(".deleteAdvert").click(function (e) {
+            $(".deleteAdvert").click(function(e) {
                 e.preventDefault();
-                $.get(this.href, function (data) {
-                    $('#dialogContent').html(data);
-                    $('#modDialog').modal('show');
-                });
+                $.get(this.href,
+                    function(data) {
+                        $('#dialogContent').html(data);
+                        $('#modDialog').modal('show');
+                    });
             });
-        })
+            
+            $(".upRating").click(function() {
+                var upRating = $(this);
+                var advertId = upRating.siblings("input").val();
+                var url = "/Home/UpRating/" + advertId;
+                $.ajax({
+                        url: url,
+                        method: 'GET',
+                        contentType: "application/json",
+                        success: function(newRating) {
+                            upRating.siblings("#Rating").text(newRating);
+                        },
+                        error: function () {
+                            alert("Error - UpRating");
+                        }
+                    }
+                );
+            });
+
+            $(".downRating").click(function() {
+                var downRating = $(this);
+                var advertId = downRating.siblings("input").val();
+                var url = "/Home/DownRating/" + advertId;
+                $.ajax({
+                        url: url,
+                        method: 'GET',
+                        contentType: "application/json",
+                        success: function(newRating) {
+                            downRating.siblings("#Rating").text(newRating);
+                        },
+                        error: function () {
+                            alert("Error - DownRating");
+                        }
+                    }
+                );
+            });
+        });   
     </script>
 }

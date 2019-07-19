@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Transactions;
 using BusinessLogic.DataManager;
 using BusinessLogic.Filters;
 using BusinessLogic.Options;
@@ -16,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using WebAppAdverts.Models;
+using Z.EntityFramework.Plus;
 
 namespace WebAppAdverts.Controllers
 {
@@ -36,7 +38,8 @@ namespace WebAppAdverts.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(string nameSearch = "", string contentSearch = "", int currentPage = 1, SortState sortOrder = SortState.DateDesc)
+        public async Task<IActionResult> Index(string nameSearch = "", string contentSearch = "", int currentPage = 1,
+            SortState sortOrder = SortState.DateDesc)
         {
             IQueryable<Advert> adverts = _operationDb.GetModels<Advert>().Include(u => u.User);
 
@@ -79,7 +82,8 @@ namespace WebAppAdverts.Controllers
             }
 
             var count = await adverts.CountAsync();
-            var items = await adverts.Skip((currentPage - 1) * _countAdvertsByPage).Take(_countAdvertsByPage).ToListAsync();
+            var items = await adverts.Skip((currentPage - 1) * _countAdvertsByPage).Take(_countAdvertsByPage)
+                .ToListAsync();
 
             var indexVM = new IndexViewModel
             {
@@ -108,7 +112,8 @@ namespace WebAppAdverts.Controllers
                 new Claim("UserId", user.Id.ToString())
             };
 
-            var id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+            var id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
+                ClaimsIdentity.DefaultRoleClaimType);
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
 
@@ -147,14 +152,14 @@ namespace WebAppAdverts.Controllers
                 if (!captchaResponce.Success)
                 {
                     ModelState.AddModelError("reCaptchaError",
-                    "reCAPTCHA error occured. Please try again.");
+                        "reCAPTCHA error occured. Please try again.");
 
                     return View(createVM);
                 }
             }
 
             var urlImage = await _imageService.WriteImageAndGetPathAsync(createVM.Image);
-            
+
             var advert = new Advert
             {
                 Content = createVM.Content,
@@ -192,20 +197,17 @@ namespace WebAppAdverts.Controllers
                 return View(editVM);
             }
 
-            var advert = await _operationDb.GetModels<Advert>().FirstOrDefaultAsync(adv => adv.Id == editVM.AdvertId);
-            advert.Content = editVM.Content;
-            advert.DateTime = DateTime.Now;
-            
-            
+            var urlImage = editVM.Image != null
+                ? await _imageService.WriteImageAndGetPathAsync(editVM.Image)
+                : editVM.ImageUrl;
 
-            if (editVM.Image != null)
-            {
-                var urlImage = await _imageService.WriteImageAndGetPathAsync(editVM.Image);
-
-                advert.Image = urlImage;
-            }
-
-            _operationDb.UpdateModel(advert);
+            await _operationDb.GetModels<Advert>(adv => adv.Id == editVM.AdvertId)
+                .UpdateAsync(adv => new Advert()
+                {
+                    Content = editVM.Content,
+                    DateTime = DateTime.Now,
+                    Image = urlImage
+                });
 
             return RedirectToAction(nameof(Index));
         }
@@ -220,20 +222,53 @@ namespace WebAppAdverts.Controllers
         [HttpPost, ActionName(nameof(DeleteModal))]
         public async Task<IActionResult> DeleteConfirmed(Guid advertId)
         {
-            var advertDelete = await _operationDb.GetModels<Advert>().FirstOrDefaultAsync(adv => adv.Id == advertId);
-
-            if (advertDelete != null)
-            {
-                _operationDb.RemoveModel(advertDelete);
-            }
+            await _operationDb.GetModels<Advert>(adv => adv.Id == advertId).DeleteAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        [Route("/Home/UpRating/{advertId}")]
+        public async Task<JsonResult> UpRating(Guid advertId)
+        {
+            var transactionOptions = new TransactionOptions() {IsolationLevel = IsolationLevel.RepeatableRead};
+            using (var transaction = new TransactionScope(TransactionScopeOption.RequiresNew, transactionOptions,
+                TransactionScopeAsyncFlowOption.Enabled))
+            {
+                await _operationDb.GetModels<Advert>(adv => adv.Id == advertId)
+                    .UpdateAsync(adv => new Advert() {Rating = adv.Rating + 1});
+
+                var advert = await _operationDb.GetModels<Advert>().FirstOrDefaultAsync(adv => adv.Id == advertId);
+
+                transaction.Complete();
+
+                return Json(advert.Rating);
+            }
+        }
+
+        [HttpGet]
+        [Route("/Home/DownRating/{advertId}")]
+        public async Task<JsonResult> DownRating(Guid advertId)
+        {
+            var transactionOptions = new TransactionOptions() {IsolationLevel = IsolationLevel.RepeatableRead};
+            using (var transaction = new TransactionScope(TransactionScopeOption.RequiresNew, transactionOptions,
+                TransactionScopeAsyncFlowOption.Enabled))
+            {
+                await _operationDb.GetModels<Advert>(adv => adv.Id == advertId)
+                    .UpdateAsync(adv => new Advert() {Rating = adv.Rating - 1});
+
+                var advert = await _operationDb.GetModels<Advert>().FirstOrDefaultAsync(adv => adv.Id == advertId);
+
+                transaction.Complete();
+
+                return Json(advert.Rating);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
     }
 }

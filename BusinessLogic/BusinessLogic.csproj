@@ -29,6 +29,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.1" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0006" />
+    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="2.0.4" />
   </ItemGroup>
 
 </Project>
